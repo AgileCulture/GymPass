@@ -20,7 +20,7 @@ public class ShareActivity extends AppCompatActivity {
 
     private void setShareContent() {
         TextView view = (TextView) findViewById(R.id.share_content);
-        view.setText("share...");
+        view.setText("Shane's change");
         view.setTextColor(getResources().getColor(R.color.black));
     }
 }
