@@ -19,7 +19,7 @@ public class ClassesActivity extends AppCompatActivity {
 
     private void setShareContent() {
         TextView view = (TextView) findViewById(R.id.classes_content);
-        view.setText("Classes...");
+        CommonMethods.setImpactFont(ClassesActivity.this, R.id.buttonShare, R.string.class_bookings);
         view.setTextColor(getResources().getColor(R.color.black));
     }
 }
