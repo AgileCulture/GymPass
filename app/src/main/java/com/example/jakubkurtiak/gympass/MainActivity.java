@@ -122,8 +122,11 @@ public class MainActivity extends AppCompatActivity {
             JSONArray gymMembersArray = null;
             JSONObject gymLocation = null;
             JSONObject gymMember = null;
+            JSONArray gymNewsArray = null;
+            JSONObject gymNews = null;
             String gymLatitude;
             String gymLongitude;
+
 
             // Getting inputs from text fields
             EditText user = (EditText) findViewById(R.id.username);
@@ -139,12 +142,31 @@ public class MainActivity extends AppCompatActivity {
                 // Getting gym location into Array
                 //gymLocation = jsonGymPasCredentials.get("")      // = jsonGymPasCredentials.getJSONArray("gymlocation");
                 gymLocation = jsonGymPasCredentials.getJSONObject("gymlocation");
+                gymNewsArray = jsonGymPasCredentials.getJSONArray("gymnews");
+
 
                 gymLatitude = String.valueOf(gymLocation.get("latitude"));
                 gymLongitude = String.valueOf(gymLocation.get("longitude"));
 
                 //gymLatitude = String.valueOf(gymLocation.getJSONObject(0).get("latitude"));
                 //gymLongitude = String.valueOf(gymLocation.getJSONObject(0).get("longitude"));
+
+                String h;
+                String c;
+                int j;
+
+                for (j = 0; j < gymNewsArray.length(); j++) {
+                    gymNews = gymNewsArray.getJSONObject(j);
+
+                    createOpenGymPassDatabase();
+
+                    String saveDbHeader = String.valueOf(gymNews.get("news_header"));
+                    String saveDbContent = String.valueOf(gymNews.get("news_content"));
+
+                    storeNewsDetailsInDataBase(saveDbHeader, saveDbContent);
+
+
+                }
 
                 // Looping through all logins
                 int i;
@@ -219,6 +241,8 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase dbGymPass = null;
         String tableName = "tbGymPassCustomer";
         String tableNameVisits = "tbGymPassCustomerVisits";
+        String tableNews = "tbGymPassNew";
+
 
         try {
             dbGymPass = openOrCreateDatabase("sqlGymPass", MODE_PRIVATE, null);
@@ -230,6 +254,9 @@ public class MainActivity extends AppCompatActivity {
             dbGymPass.execSQL("CREATE TABLE IF NOT EXISTS "
                     + tableNameVisits
                     + " (login VARCHAR, timestamp DATETIME)");
+            dbGymPass.execSQL("CREATE TABLE IF NOT EXISTS "
+                    + tableNews
+                    + " (news_header VARCHAR, news_content VARCHAR)");
         } catch (Exception e) {
             Log.e("DB_create_error", "Database creation error");
         }
@@ -253,6 +280,17 @@ public class MainActivity extends AppCompatActivity {
                 + tableName
                 + " (login, password, barcode, gymlocation)"
                 + " VALUES ('"+login+"', '"+password+"',"+barcode+", "+gymlocation+");");
+    }
+
+    protected void storeNewsDetailsInDataBase(String header, String content) {
+
+        // Populate database with customer data
+        String tableNews = "tbGymPassNew";
+
+        openGymPassDatabase(null).execSQL("INSERT INTO "
+                + tableNews
+                + " (news_header, news_content)"
+                + " VALUES ('"+header+"', '"+content+"');");
     }
 
     protected void saveAppSharedPrefLogin(String login) {
