@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase dbGymPass = null;
         String tableName = "tbGymPassCustomer";
         String tableNameVisits = "tbGymPassCustomerVisits";
-        String tableNews = "tbGymPassNew";
+        String tableNews = "tbGymPassNews";
 
 
         try {
@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
     protected void storeNewsDetailsInDataBase(String header, String content) {
 
         // Populate database with customer data
-        String tableNews = "tbGymPassNew";
+        String tableNews = "tbGymPassNews";
 
         openGymPassDatabase(null).execSQL("INSERT INTO "
                 + tableNews

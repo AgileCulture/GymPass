@@ -26,30 +26,66 @@ public class ReadNewsActivity extends AppCompatActivity {
 
     private void setNewsContent() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("Latest News:  "+readGymLocation());
+        view.setText("  \n "+readGymLocation());
         view.setTextColor(getResources().getColor(R.color.black));
     }
 
+    private void setNewsContent2() {
+        TextView view = (TextView) findViewById(R.id.news_content);
+        view.setText("  \n "+readGymLocation());
+        view.setTextColor(getResources().getColor(R.color.black));
+    }
+
+    protected void onResume() {
+
+        super.onResume();
+        setContentView(R.layout.activity_read_news);
+
+        setImpactFont(R.id.top,R.string.gympass);
+        setImpactFont(R.id.read_news_header,R.string.read_news);
+
+        setNewsContent2();
+    }
 
     protected String readGymLocation() {
-        String tableNews = "tbGymPassNew";
-        String gymLoc = "";
-        String gymLoc2 = "";
+        String tableNews = "tbGymPassNews";
+        String gymN = "";
+        String gymN2 = "";
+
 
 
         Cursor cursorGymPass = openGymPassDatabase(null).rawQuery("SELECT * FROM " + tableNews, null);
-        int indexLocation = cursorGymPass.getColumnIndex("news_header");
-        int indexLocation2 = cursorGymPass.getColumnIndex("news_content");
+        int indexNews = cursorGymPass.getColumnIndex("news_header");
+        int indexNews2 = cursorGymPass.getColumnIndex("news_content");
+
+        cursorGymPass.moveToFirst();
+
+        gymN = cursorGymPass.getString(indexNews);
+        gymN2 = cursorGymPass.getString(indexNews2);
+
+        cursorGymPass.close();
+        return gymN + " \n \n \n" + gymN2;
+    }
+
+    protected String readGymLocation2() {
+        String tableNews = "tbGymPassNews";
+        String gymN = "";
+        String gymN2 = "";
+
+
+
+        Cursor cursorGymPass = openGymPassDatabase(null).rawQuery("SELECT * FROM " + tableNews, null);
+        int indexNews = cursorGymPass.getColumnIndex("news_header");
+        int indexNews2 = cursorGymPass.getColumnIndex("news_content");
 
         cursorGymPass.moveToLast();
 
-        gymLoc = cursorGymPass.getString(indexLocation);
-        gymLoc2 = cursorGymPass.getString(indexLocation2);
+        gymN = cursorGymPass.getString(indexNews);
+        gymN2 = cursorGymPass.getString(indexNews2);
 
         cursorGymPass.close();
-        return gymLoc + " \n \n \n" + gymLoc2;
+        return gymN + " \n \n \n" + gymN2;
     }
-
 
     protected SQLiteDatabase openGymPassDatabase (SQLiteDatabase db) {
         try {
