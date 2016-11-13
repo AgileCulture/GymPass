@@ -4,6 +4,11 @@ package com.example.jakubkurtiak.gympass;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.widget.TextView;
+        import android.content.Intent;
+        import android.text.Html;
+        import android.view.View;
+        import android.widget.Button;
+
 
 public class ShareActivity extends AppCompatActivity {
 
@@ -15,13 +20,32 @@ public class ShareActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(ShareActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(ShareActivity.this,R.id.share_header,R.string.share_now);
 
+
         setShareContent();
+
     }
 
+
+
     private void setShareContent() {
-        TextView view = (TextView) findViewById(R.id.share_content);
-        view.setText("Shane's change - this is my second change");
-        view.setTextColor(getResources().getColor(R.color.black));
-        //mick change
+        final TextView view = (TextView) findViewById(R.id.share_content);
+        final Button shareButton = new Button(this);
+        shareButton.setTextColor(getResources().getColor(R.color.darkturquoise));
+        shareButton.setText("Click here if you think other people give a shit...");
+        setContentView(shareButton);
+
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msgToShare = "I'm one of those vain pricks who checks-in on FB whenever I go to the gym  - sent from GymPass";
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
+                startActivity(Intent.createChooser(shareIntent,"Choose an app from the list:"));
+            }
+        });
+
+
     }
+
 }
