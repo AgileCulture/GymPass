@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 public class ReadNewsActivity extends AppCompatActivity {
 
+    //test comment ************
+    //test comment2 ************
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
