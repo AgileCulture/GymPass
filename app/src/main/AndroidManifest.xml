@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBL-kVJASIcKV1C4ON6VqSzTjEJvgnPpeE" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -33,7 +39,11 @@
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".ShareActivity" />
         <activity android:name=".DeregisterActivity" />
-        <activity android:name=".ClassesActivity"></activity>
+        <activity android:name=".ClassesActivity"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
