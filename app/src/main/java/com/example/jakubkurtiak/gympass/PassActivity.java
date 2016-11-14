@@ -1,5 +1,6 @@
 package com.example.jakubkurtiak.gympass;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,7 +61,8 @@ public class PassActivity extends AppCompatActivity {
                 +"Last one: "+lastVisit()
                 +"\n"
                 +"User: "+CommonMethods.returnCurrentLogin(PassActivity.this)
-                +" "
+                +"\n"
+                +"Current location: "+CommonMethods.currentDeviceLocation(PassActivity.this)
         );
         view.setTypeface(font, Typeface.ITALIC);
     }
@@ -103,6 +106,19 @@ public class PassActivity extends AppCompatActivity {
         String gymLoc = cursorGymPass.getString(indexLocation);
         cursorGymPass.close();
         return gymLoc;
+    }
+
+    protected void openGeoLocationUri() {
+        double latitude = 40.714728;
+        double longitude = -73.998672;
+        String label = "ABC Label";
+        String uriBegin = "geo:" + latitude + "," + longitude;
+        String query = latitude + "," + longitude + "(" + label + ")";
+        String encodedQuery = Uri.encode(query);
+        String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
+        Uri uri = Uri.parse(uriString);
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     protected int readNumberOfVisits() {
