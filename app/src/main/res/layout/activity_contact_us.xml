@@ -50,6 +50,12 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:ems="10"
         android:id="@+id/editText3" />
 
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
