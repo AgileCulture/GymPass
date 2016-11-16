@@ -14,19 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        //API Key
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBL-kVJASIcKV1C4ON6VqSzTjEJvgnPpeE" />
 
+
+
         <activity
-            android:name=".MainActivity"
+            android:name=".HomePageActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".MainActivity"/>
+
         <activity
             android:name=".MenuActivity"
             android:label="@string/menu"
@@ -35,8 +41,10 @@
             android:name=".PassActivity"
             android:label="@string/pass"
             android:screenOrientation="portrait" />
-        <activity android:name=".ReadNewsActivity" />
-        <activity android:name=".ContactUsActivity" />
+        <activity android:name=".ReadNewsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ContactUsActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ShareActivity" />
         <activity android:name=".DeregisterActivity" />
         <activity android:name=".ClassesActivity"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for

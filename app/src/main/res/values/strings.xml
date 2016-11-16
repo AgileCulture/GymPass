@@ -24,6 +24,13 @@
     <string name="scan_code">Scan Code Now&#160;</string>
     <string name="qrcode_desc">Qr Code</string>
     <string name="class_bookings">Class Bookings</string>
+    <string name="share_to_app">Choose an app or conversation from the list:</string>
+
+        //contact class Email sender
+        <string name="GymPass2">Contact Us</string>
+        <string name="compose_email">Compose Email</string>
+
+
 
     <string name="deregister_message">
         \n

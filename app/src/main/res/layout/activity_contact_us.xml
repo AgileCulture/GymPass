@@ -17,29 +17,25 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
     android:layout_height="wrap_content"
     android:textSize="44sp"
     android:gravity="end"/>
-<TextView
-    android:id="@+id/middle"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textSize="44sp"
-    android:layout_below="@id/top"/>
-<LinearLayout
+
+    <LinearLayout
     android:id="@+id/upperButtons"
     android:layout_width="match_parent"
-    android:layout_height="300sp"
+    android:layout_height="350sp"
     android:gravity="start"
     android:orientation="vertical"
     android:layout_below="@+id/top"
-    android:layout_marginTop="20sp"
+    android:layout_marginTop="90sp"
     android:layout_marginLeft="20sp"
     android:layout_marginRight="20sp"
-    android:layout_marginBottom="20sp">
+        android:weightSum="1">
 
     <TextView
         android:id="@+id/contact_us_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:textSize="25sp"/>
+
 
 
     <EditText
@@ -56,61 +52,72 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:layout_height="wrap_content"
         android:id="@+id/button" />
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
 
     <TextView
         android:id="@+id/news_content"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"/>
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:background="@color/white" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="To"
+            android:ems="10"
+            android:id="@+id/editText2" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Your subject"
+            android:ems="10"
+            android:id="@+id/editText4" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Email message"
+            android:ems="10"
+            android:id="@+id/editText5" />
 
 
+    </LinearLayout>
 
-</LinearLayout>
 
     <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/stat_sys_phone_call"
-        android:id="@+id/buttonCall"
+    android:layout_width="150sp"
+    android:layout_height="60sp"
+    app:srcCompat="@android:drawable/stat_sys_phone_call"
+    android:id="@+id/buttonCall"
+    android:onClick="onClickCall"
+        android:layout_below="@+id/top"
         android:layout_alignLeft="@+id/upperButtons"
         android:layout_alignStart="@+id/upperButtons"
-        android:layout_alignRight="@+id/upperButtons"
-        android:layout_alignEnd="@+id/upperButtons"
-        android:onClick="onClickCall"
-        android:layout_alignBottom="@+id/upperButtons" />
+        android:layout_marginTop="29dp" >
+        </ImageButton>
 
     <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_dialog_map"
-        android:id="@+id/imageButtonMap"
-        android:layout_below="@+id/buttonCall"
-        android:layout_alignLeft="@+id/upperButtons"
-        android:layout_alignStart="@+id/upperButtons"
+    android:layout_width="150sp"
+    android:layout_height="60sp"
+    app:srcCompat="@android:drawable/ic_dialog_map"
+    android:id="@+id/imageButtonMap"
+    android:onClick="onClickMap"
+        android:layout_alignTop="@+id/buttonCall"
         android:layout_alignRight="@+id/upperButtons"
-        android:layout_alignEnd="@+id/upperButtons"
-        android:onClick="onClickMap" />
+        android:layout_alignEnd="@+id/upperButtons" />
+
+    <ImageButton
+        android:layout_width="50pt"
+        android:layout_height="60sp"
+        app:srcCompat="@android:drawable/sym_action_email"
+        android:id="@+id/imageButtonEmail"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickEmail" />
+
+
 </RelativeLayout>
 

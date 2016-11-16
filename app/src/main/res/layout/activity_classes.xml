@@ -11,40 +11,32 @@ android:paddingTop="@dimen/activity_vertical_margin"
 android:background="@color/background"
 tools:context="com.example.jakubkurtiak.gympass.ClassesActivity">
 
-<TextView
-    android:id="@+id/top"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="44sp"
-    android:gravity="end"/>
-<TextView
-    android:id="@+id/middle"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textSize="44sp"
-    android:layout_below="@id/top"/>
-<LinearLayout
-    android:id="@+id/upperButtons"
-    android:layout_width="match_parent"
-    android:layout_height="300sp"
-    android:gravity="start"
-    android:orientation="vertical"
-    android:layout_below="@+id/top"
-    android:layout_marginTop="@dimen/gapUnderGymPassLogo"
-    android:layout_marginLeft="20sp"
-    android:layout_marginRight="20sp"
-    android:layout_marginBottom="20sp">
-
-    <TextView
-        android:id="@+id/classes_header"
+    <Button
+        android:text="Share Status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
-    <TextView
-        android:id="@+id/classes_content"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"/>
-</LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:id="@+id/button"
+        android:onClick="shareStatus"/>
+
+    <Button
+        android:text="Share Update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button"
+        android:id="@+id/button2" />
+
+    <Button
+        android:text="Share All"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:id="@+id/button3" />
 </RelativeLayout>
 
