@@ -19,7 +19,7 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home_page);
 
         // final Handler handler = new Handler();
         // handler.postDelayed(new Runnable() {
