@@ -37,6 +37,22 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:textSize="25sp"/>
 
 
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/editText3" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
+
+
     <TextView
         android:id="@+id/news_content"
         android:layout_width="match_parent"

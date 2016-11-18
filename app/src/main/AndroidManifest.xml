@@ -20,15 +20,19 @@
             android:value="AIzaSyBL-kVJASIcKV1C4ON6VqSzTjEJvgnPpeE" />
 
 
+
         <activity
-            android:name=".MainActivity"
+            android:name=".HomePageActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".MainActivity"/>
+
         <activity
             android:name=".MenuActivity"
             android:label="@string/menu"
@@ -41,7 +45,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ContactUsActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ShareActivity" />
+        <activity android:name=".ShareActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".DeregisterActivity" />
         <activity android:name=".ClassesActivity"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
