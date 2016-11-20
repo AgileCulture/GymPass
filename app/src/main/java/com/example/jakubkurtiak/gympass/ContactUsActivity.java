@@ -49,7 +49,7 @@ public class ContactUsActivity extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-
+//kjkjkjkjkj
     private void setContactContent() {
         TextView view = (TextView) findViewById(R.id.news_content);
         view.setText("  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n " +
