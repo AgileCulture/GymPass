@@ -21,16 +21,16 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
     <LinearLayout
     android:id="@+id/upperButtons"
     android:layout_width="match_parent"
-    android:layout_height="350sp"
+    android:layout_height="150sp"
     android:gravity="start"
     android:orientation="vertical"
     android:layout_below="@+id/top"
-    android:layout_marginTop="90sp"
+    android:layout_marginTop="50sp"
     android:layout_marginLeft="20sp"
     android:layout_marginRight="20sp"
         android:weightSum="1">
 
-    <TextView
+        <TextView
         android:id="@+id/contact_us_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,85 +38,48 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
 
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/editText3" />
 
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button" />
 
 
     <TextView
         android:id="@+id/news_content"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="100dp"
         android:background="@color/white" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="To"
-            android:ems="10"
-            android:id="@+id/editText2" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Your subject"
-            android:ems="10"
-            android:id="@+id/editText4" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Email message"
-            android:ems="10"
-            android:id="@+id/editText5" />
 
 
     </LinearLayout>
 
-
     <ImageButton
-    android:layout_width="150sp"
-    android:layout_height="60sp"
-    app:srcCompat="@android:drawable/stat_sys_phone_call"
-    android:id="@+id/buttonCall"
-    android:onClick="onClickCall"
-        android:layout_below="@+id/top"
-        android:layout_alignLeft="@+id/upperButtons"
-        android:layout_alignStart="@+id/upperButtons"
-        android:layout_marginTop="29dp" >
-        </ImageButton>
-
-    <ImageButton
-    android:layout_width="150sp"
-    android:layout_height="60sp"
-    app:srcCompat="@android:drawable/ic_dialog_map"
-    android:id="@+id/imageButtonMap"
-    android:onClick="onClickMap"
-        android:layout_alignTop="@+id/buttonCall"
+        android:layout_width="105dp"
+        android:layout_height="60sp"
+        app:srcCompat="@android:drawable/sym_action_email"
+        android:id="@+id/imageButtonEmail"
+        android:onClick="onClickEmail"
+        android:layout_below="@+id/upperButtons"
         android:layout_alignRight="@+id/upperButtons"
         android:layout_alignEnd="@+id/upperButtons" />
 
     <ImageButton
-        android:layout_width="50pt"
-        android:layout_height="60sp"
-        app:srcCompat="@android:drawable/sym_action_email"
-        android:id="@+id/imageButtonEmail"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickEmail" />
+    android:layout_width="105dp"
+    android:layout_height="60sp"
+    app:srcCompat="@android:drawable/ic_dialog_map"
+    android:id="@+id/imageButtonMap"
+    android:onClick="onClickMap"
+        android:layout_below="@+id/upperButtons"
+        android:layout_alignLeft="@+id/upperButtons"
+        android:layout_alignStart="@+id/upperButtons" />
+
+    <ImageButton
+    android:layout_width="95dp"
+    android:layout_height="60dp"
+    app:srcCompat="@android:drawable/stat_sys_phone_call"
+    android:id="@+id/buttonCall"
+    android:onClick="onClickCall"
+        android:layout_below="@+id/upperButtons"
+        android:layout_toLeftOf="@+id/imageButtonEmail"
+        android:layout_toStartOf="@+id/imageButtonEmail">
+        </ImageButton>
 
 
 </RelativeLayout>

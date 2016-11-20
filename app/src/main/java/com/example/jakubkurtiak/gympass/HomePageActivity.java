@@ -52,6 +52,7 @@ public class HomePageActivity extends AppCompatActivity {
 
 
 
+
     //Activates the MainActivity
     public void nextPageClick(View v)
     {
