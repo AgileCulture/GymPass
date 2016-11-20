@@ -31,7 +31,7 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         //Set Delay Time
-        int DelayText = 10000;
+        int DelayText = 1000;
 
         //Creating handler object on main thread
         Handler handler = new Handler();

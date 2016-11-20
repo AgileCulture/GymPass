@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 public class ReadNewsActivity extends AppCompatActivity {
 
-    //test comment ************
-    //test comment2 ************
+
 
 
     @Override
@@ -25,20 +24,32 @@ public class ReadNewsActivity extends AppCompatActivity {
         setImpactFont(R.id.top,R.string.gympass);
         setImpactFont(R.id.read_news_header,R.string.read_news);
 
-        setNewsContent();
+        setNewsContent0();
+        setNewsContent1();
+        setNewsContent2();
+        //final  String[] myName = (setNewsContent0() setNewsContent1() setNewsContent2() );
+
     }
 
-    private void setNewsContent() {
+
+    private void setNewsContent0() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("  \n "+readGymLocation());
+        view.setText("  \n "+readGymLocation0());
+        view.setTextColor(getResources().getColor(R.color.black));
+    }
+
+    private void setNewsContent1() {
+        TextView view = (TextView) findViewById(R.id.news_content);
+        view.setText("  \n "+readGymLocation1());
         view.setTextColor(getResources().getColor(R.color.black));
     }
 
     private void setNewsContent2() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("  \n "+readGymLocation());
+        view.setText("  \n "+readGymLocation2());
         view.setTextColor(getResources().getColor(R.color.black));
     }
+
 
     protected void onResume() {
 
@@ -51,7 +62,7 @@ public class ReadNewsActivity extends AppCompatActivity {
         setNewsContent2();
     }
 
-    protected String readGymLocation() {
+    protected String readGymLocation0() {
         String tableNews = "tbGymPassNews";
         String gymN = "";
         String gymN2 = "";
@@ -62,7 +73,7 @@ public class ReadNewsActivity extends AppCompatActivity {
         int indexNews = cursorGymPass.getColumnIndex("news_header");
         int indexNews2 = cursorGymPass.getColumnIndex("news_content");
 
-        cursorGymPass.moveToFirst();
+        cursorGymPass.moveToPosition(0);
 
         gymN = cursorGymPass.getString(indexNews);
         gymN2 = cursorGymPass.getString(indexNews2);
@@ -70,6 +81,29 @@ public class ReadNewsActivity extends AppCompatActivity {
         cursorGymPass.close();
         return gymN + " \n \n \n" + gymN2;
     }
+
+    protected String readGymLocation1() {
+        String tableNews = "tbGymPassNews";
+        String gymN = "";
+        String gymN2 = "";
+
+
+
+        Cursor cursorGymPass = openGymPassDatabase(null).rawQuery("SELECT * FROM " + tableNews, null);
+        int indexNews = cursorGymPass.getColumnIndex("news_header");
+        int indexNews2 = cursorGymPass.getColumnIndex("news_content");
+
+        cursorGymPass.moveToPosition(1);
+
+
+        gymN = cursorGymPass.getString(indexNews);
+        gymN2 = cursorGymPass.getString(indexNews2);
+
+        cursorGymPass.close();
+        return gymN + " \n \n \n" + gymN2;
+
+    }
+
 
     protected String readGymLocation2() {
         String tableNews = "tbGymPassNews";
@@ -82,7 +116,7 @@ public class ReadNewsActivity extends AppCompatActivity {
         int indexNews = cursorGymPass.getColumnIndex("news_header");
         int indexNews2 = cursorGymPass.getColumnIndex("news_content");
 
-        cursorGymPass.moveToLast();
+        cursorGymPass.moveToPosition(0);
 
         gymN = cursorGymPass.getString(indexNews);
         gymN2 = cursorGymPass.getString(indexNews2);

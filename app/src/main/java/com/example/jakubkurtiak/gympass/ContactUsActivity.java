@@ -52,7 +52,10 @@ public class ContactUsActivity extends AppCompatActivity {
 
     private void setContactContent() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("contact...");
+        view.setText("  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n " +
+                " Monday - Friday: 6am - 11pm \n" +
+                "  Weekends:	8am - 6.30pm \n" +
+                "  Bank Holidays:	8am - 6.30pm");
         view.setTextColor(getResources().getColor(R.color.black));
 
 
@@ -73,7 +76,7 @@ public class ContactUsActivity extends AppCompatActivity {
                 //built-in phone call function (Action call)
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 //sets  a specific phone number
-                callIntent.setData(Uri.parse("tel:+353857357713"));
+                callIntent.setData(Uri.parse("tel:(01)7163800"));
 
                 if (ActivityCompat.checkSelfPermission(ContactUsActivity.this,
                         Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -104,9 +107,9 @@ public class ContactUsActivity extends AppCompatActivity {
         //launches the email which is stored on our phone
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         //Email address to receiver
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"mbrennan2008@yahoo.com"});
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{" fitness@ucd.ie"});
         //Holds the subject of the emails
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Gym Query");
         //Holds the subject of the email messsage
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi ");
         //set the action send to data type emails

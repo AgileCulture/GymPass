@@ -38,9 +38,6 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
 
 
 
-
-
-
     <TextView
         android:id="@+id/news_content"
         android:layout_width="match_parent"
@@ -80,6 +77,8 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:layout_toLeftOf="@+id/imageButtonEmail"
         android:layout_toStartOf="@+id/imageButtonEmail">
         </ImageButton>
+
+
 
 
 </RelativeLayout>
