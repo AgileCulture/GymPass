@@ -18,49 +18,45 @@ public class ReadNewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_news);
 
-        CommonMethods.setImpactFont(ReadNewsActivity.this,R.id.top,R.string.gympass);
-        CommonMethods.setImpactFont(ReadNewsActivity.this,R.id.read_news_header,R.string.read_news);
+        CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.top, R.string.gympass);
+        CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.read_news_header, R.string.read_news);
 
-        setImpactFont(R.id.top,R.string.gympass);
-        setImpactFont(R.id.read_news_header,R.string.read_news);
-
+        setImpactFont(R.id.top, R.string.gympass);
+        setImpactFont(R.id.read_news_header, R.string.read_news);
+        TextView view = (TextView) findViewById(R.id.news_content);
         setNewsContent0();
-        setNewsContent1();
-        setNewsContent2();
-        //final  String[] myName = (setNewsContent0() setNewsContent1() setNewsContent2() );
+
+
 
     }
 
+    //final String[] myName = {hello, hell, hel};
 
-    private void setNewsContent0() {
+    // Set Impact font for given view and string.
+    protected void setImpactFont(int viewName, int theString) {
+        TextView newfont = (TextView) findViewById(viewName);
+        Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
+        newfont.setText(theString);
+        newfont.setTypeface(font, Typeface.ITALIC);
+
+
+    }
+
+    //String hello = setNewsContent0();
+    //String hell = setNewsContent1();
+    //String hel = setNewsContent2();
+    //final String[] myName = {hello, hell, hel};
+
+    private String setNewsContent0() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("  \n "+readGymLocation0());
+        view.setText("\n \n  " + readGymLocation0() +"\n \n \n                     "
+                +readGymLocation1()+"\n \n \n                 "
+                + readGymLocation2());
         view.setTextColor(getResources().getColor(R.color.black));
-    }
-
-    private void setNewsContent1() {
-        TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("  \n "+readGymLocation1());
-        view.setTextColor(getResources().getColor(R.color.black));
-    }
-
-    private void setNewsContent2() {
-        TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("  \n "+readGymLocation2());
-        view.setTextColor(getResources().getColor(R.color.black));
+        return null;
     }
 
 
-    protected void onResume() {
-
-        super.onResume();
-        setContentView(R.layout.activity_read_news);
-
-        setImpactFont(R.id.top,R.string.gympass);
-        setImpactFont(R.id.read_news_header,R.string.read_news);
-
-        setNewsContent2();
-    }
 
     protected String readGymLocation0() {
         String tableNews = "tbGymPassNews";
@@ -73,7 +69,7 @@ public class ReadNewsActivity extends AppCompatActivity {
         int indexNews = cursorGymPass.getColumnIndex("news_header");
         int indexNews2 = cursorGymPass.getColumnIndex("news_content");
 
-        cursorGymPass.moveToPosition(0);
+        cursorGymPass.moveToPosition(2);
 
         gymN = cursorGymPass.getString(indexNews);
         gymN2 = cursorGymPass.getString(indexNews2);
@@ -134,11 +130,6 @@ public class ReadNewsActivity extends AppCompatActivity {
         return db;
     }
 
-    // Set Impact font for given view and string.
-    protected void setImpactFont(int viewName, int theString) {
-        TextView newfont = (TextView) findViewById(viewName);
-        Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
-        newfont.setText(theString);
-        newfont.setTypeface(font, Typeface.ITALIC);
-    }
+
 }
+
