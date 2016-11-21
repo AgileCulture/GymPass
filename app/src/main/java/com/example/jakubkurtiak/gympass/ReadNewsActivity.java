@@ -47,6 +47,7 @@ public class ReadNewsActivity extends AppCompatActivity {
     //String hel = setNewsContent2();
     //final String[] myName = {hello, hell, hel};
 
+    //Random method 
     private String setNewsContent0() {
         TextView view = (TextView) findViewById(R.id.news_content);
 
