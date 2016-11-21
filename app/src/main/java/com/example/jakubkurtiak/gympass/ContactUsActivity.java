@@ -52,7 +52,7 @@ public class ContactUsActivity extends AppCompatActivity {
 
     private void setContactContent() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n " +
+        view.setText(" \n  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n " +
                 " Monday - Friday: 6am - 11pm \n" +
                 "  Weekends:	8am - 6.30pm \n" +
                 "  Bank Holidays:	8am - 6.30pm");

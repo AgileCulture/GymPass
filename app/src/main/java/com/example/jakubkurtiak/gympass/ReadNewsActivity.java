@@ -49,10 +49,19 @@ public class ReadNewsActivity extends AppCompatActivity {
 
     private String setNewsContent0() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText("\n \n  " + readGymLocation0() +"\n \n \n                     "
-                +readGymLocation1()+"\n \n \n                 "
-                + readGymLocation2());
+
+        final String[] newsArray = {readGymLocation0(), readGymLocation1(), readGymLocation2()};
+        int randomNews = (int) ((Math.random() * 3));
+        String newsToShow = newsArray[randomNews];
+
+//        view.setText("\n \n  " + readGymLocation0() +"\n \n \n                     "
+//                +readGymLocation1()+"\n \n \n                 "
+//                + readGymLocation2());
+//        view.setTextColor(getResources().getColor(R.color.black));
+
+        view.setText("\n \n  " + newsToShow);
         view.setTextColor(getResources().getColor(R.color.black));
+
         return null;
     }
 

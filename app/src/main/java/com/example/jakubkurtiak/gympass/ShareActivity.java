@@ -2,6 +2,7 @@ package com.example.jakubkurtiak.gympass;
 
         import android.app.Activity;
         import android.graphics.Typeface;
+        import android.net.Uri;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.widget.TextView;
@@ -43,12 +44,16 @@ public class ShareActivity extends AppCompatActivity {
 
 
     public void shareUpdate(View view) {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
+//        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//        shareIntent.setType("text/plain");
+//
+//        String msgToShare = "In here will go an update: I have been at the gym X times in the past Y days/weeks/months";
+//        shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
+//        startActivity(Intent.createChooser(shareIntent,"Choose an app or conversation from the list:"));
 
-        String msgToShare = "In here will go an update: I have been at the gym X times in the past Y days/weeks/months";
-        shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
-        startActivity(Intent.createChooser(shareIntent,"Choose an app or conversation from the list:"));
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=FRfmw3jw2c4")));
+
+
     }
 
     public void shareAll(View view) {

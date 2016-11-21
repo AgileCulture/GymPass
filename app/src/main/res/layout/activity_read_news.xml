@@ -26,14 +26,13 @@
     <LinearLayout
         android:id="@+id/upperButtons"
         android:layout_width="match_parent"
-        android:layout_height="360sp"
+        android:layout_height="300sp"
         android:gravity="start"
         android:orientation="vertical"
         android:layout_below="@+id/top"
         android:layout_marginTop="@dimen/gapUnderGymPassLogo"
         android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:layout_marginBottom="20sp">
+        android:layout_marginRight="20sp">
 
         <TextView
             android:id="@+id/read_news_header"
@@ -46,16 +45,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/news_content"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:background="@color/white"/>
-        </ScrollView>
 
     </LinearLayout>
 

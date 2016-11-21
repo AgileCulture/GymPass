@@ -21,7 +21,7 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
     <LinearLayout
     android:id="@+id/upperButtons"
     android:layout_width="match_parent"
-    android:layout_height="150sp"
+    android:layout_height="180sp"
     android:gravity="start"
     android:orientation="vertical"
     android:layout_below="@+id/top"
@@ -42,10 +42,22 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:id="@+id/news_content"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/white" />
+        android:background="@color/white"
+        android:layout_weight="1.60" />
 
 
     </LinearLayout>
+
+    <ImageButton
+    android:layout_width="95dp"
+    android:layout_height="60dp"
+    app:srcCompat="@android:drawable/stat_sys_phone_call"
+    android:id="@+id/buttonCall"
+    android:onClick="onClickCall"
+        android:layout_below="@+id/upperButtons"
+        android:layout_toRightOf="@+id/imageButtonMap"
+        android:layout_toEndOf="@+id/imageButtonMap">
+        </ImageButton>
 
     <ImageButton
         android:layout_width="105dp"
@@ -66,19 +78,6 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:layout_below="@+id/upperButtons"
         android:layout_alignLeft="@+id/upperButtons"
         android:layout_alignStart="@+id/upperButtons" />
-
-    <ImageButton
-    android:layout_width="95dp"
-    android:layout_height="60dp"
-    app:srcCompat="@android:drawable/stat_sys_phone_call"
-    android:id="@+id/buttonCall"
-    android:onClick="onClickCall"
-        android:layout_below="@+id/upperButtons"
-        android:layout_toLeftOf="@+id/imageButtonEmail"
-        android:layout_toStartOf="@+id/imageButtonEmail">
-        </ImageButton>
-
-
 
 
 </RelativeLayout>
