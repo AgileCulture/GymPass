@@ -21,6 +21,9 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -96,6 +99,38 @@ public class CommonMethods {
         Cursor cursor = CommonMethods.openGymPassDatabase(activity, null).rawQuery(
                 "SELECT * FROM " + tableName, null);
         return cursor;
+    }
+
+    // Read timestamp of last visit or few visits in date format.
+    // Pass parameter following parameters to get:
+    // 1 - last visit
+    // 2 - second last visit
+    protected static Date lastGymVisit(Activity activity, int parameter) {
+
+        Cursor cursorNoVisits = CommonMethods.readTableToCursor(activity, "tbGymPassCustomerVisits");
+        if (parameter == 1) {
+            cursorNoVisits.moveToLast();
+        }
+
+        if (parameter == 2 && cursorNoVisits.getCount() > 1) {
+        cursorNoVisits.moveToLast();
+        cursorNoVisits.moveToPrevious();
+        } else {
+            cursorNoVisits.moveToLast();
+        }
+
+        int indexTime = cursorNoVisits.getColumnIndex("timestamp");
+        String time = cursorNoVisits.getString(indexTime);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
+        Date dateOfLastVisit = null;
+        try {
+            dateOfLastVisit = dateFormat.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        cursorNoVisits.close();
+        return dateOfLastVisit;
     }
 
     // Open database to read.

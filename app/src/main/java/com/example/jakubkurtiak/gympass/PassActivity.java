@@ -26,6 +26,7 @@ import com.onbarcode.barcode.android.IBarcode;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class PassActivity extends AppCompatActivity {
@@ -48,7 +49,7 @@ public class PassActivity extends AppCompatActivity {
     private void gymLocation () {
         TextView view = (TextView) findViewById(R.id.gymmember_name);
         Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
-        view.setText("Gym location: "+readGymLocation()+" "); // Temporarily, to be removed.
+        view.setText("Gym location: "+readGymLocation()+", "+" "+"User: "+CommonMethods.returnCurrentLogin(PassActivity.this)+" "); // Temporarily, to be removed.
         view.setTypeface(font, Typeface.ITALIC);
     }
 
@@ -56,13 +57,17 @@ public class PassActivity extends AppCompatActivity {
         TextView view = (TextView) findViewById(R.id.visits_so_far);
         Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
         view.setText(
-                "Total visits: "+readNumberOfVisits()+" "
+                "Current location: "+CommonMethods.currentDeviceLocation(PassActivity.this)+","
                 +"\n"
-                +"Last one: "+lastVisit()
+                +"Total visits: "+readNumberOfVisits()+" "+" "+"Last one: "+lastVisit()+" "
                 +"\n"
-                +"User: "+CommonMethods.returnCurrentLogin(PassActivity.this)
                 +"\n"
-                +"Current location: "+CommonMethods.currentDeviceLocation(PassActivity.this)
+                +"Last one date read as Date format:\n"+CommonMethods.lastGymVisit(PassActivity.this,1)
+                +"\n"
+                +"Second last one date read as Date format:\n"+CommonMethods.lastGymVisit(PassActivity.this,2)
+                +"\n"
+                // 1 - last visit
+                // 2 - second last visit
         );
         view.setTypeface(font, Typeface.ITALIC);
     }
