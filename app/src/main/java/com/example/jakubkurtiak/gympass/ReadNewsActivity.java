@@ -30,6 +30,7 @@ public class ReadNewsActivity extends AppCompatActivity {
 
     }
 
+    //testing this page...
     //final String[] myName = {hello, hell, hel};
 
     // Set Impact font for given view and string.
