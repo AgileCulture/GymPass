@@ -16,7 +16,9 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="44sp"
-    android:gravity="end"/>
+    android:gravity="end"
+    android:layout_alignRight="@+id/upperButtons"
+    android:layout_alignEnd="@+id/upperButtons" />
 
     <LinearLayout
     android:id="@+id/upperButtons"
