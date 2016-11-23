@@ -25,6 +25,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -99,6 +100,49 @@ public class CommonMethods {
         Cursor cursor = CommonMethods.openGymPassDatabase(activity, null).rawQuery(
                 "SELECT * FROM " + tableName, null);
         return cursor;
+    }
+
+    // Time since last visit.
+    public static String timeSinceLastVisit(Activity activity) {
+        // Get the time of last visit and compare to current time.
+
+        Cursor cursorNoVisits = CommonMethods.readTableToCursor(activity, "tbGymPassCustomerVisits");
+        cursorNoVisits.moveToLast();
+
+        int indexTime = cursorNoVisits.getColumnIndex("timestamp");
+        String time = cursorNoVisits.getString(indexTime);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
+        Date dateOfLastVisit = null;
+        try {
+            dateOfLastVisit = dateFormat.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        cursorNoVisits.close();
+
+        // To calculate the difference between NOW and LAST VISIT, Date must be changed
+        // into long. Then time of last visit is subtracted from actual time which
+        // gives us the actual time since last visit.
+        // This time is in seconds, so must be changed to human readable format.
+
+        long dateTimeNowInSeconds = new Date().getTime()/1000;
+        long dateTimeLastVisitInSeconds = dateOfLastVisit.getTime()/1000;
+        long timeSinceLastVisitInSeconds = dateTimeNowInSeconds - dateTimeLastVisitInSeconds;
+
+        int daysSinceLastVisit = (int) (timeSinceLastVisitInSeconds / 86400);
+        int hoursSinceLastVisit = (int) ((timeSinceLastVisitInSeconds % 86400)) / 3600;
+        int minutesSinceLastVisit = (int) (((timeSinceLastVisitInSeconds % 86400)) % 3600) / 60;
+        int secondsSinceLastVisit = (int) (((timeSinceLastVisitInSeconds % 86400)) % 3600) % 60;
+
+        // Return string with time passed since last visit.
+
+        String timeSinceLastVisit = (daysSinceLastVisit+" days "
+                                    +hoursSinceLastVisit+" hours "
+                                    +minutesSinceLastVisit+" minutes "
+                                    +secondsSinceLastVisit+" seconds ");
+
+        return timeSinceLastVisit;
     }
 
     // Read timestamp of last visit or few visits in date format.
