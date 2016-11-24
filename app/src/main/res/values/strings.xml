@@ -26,11 +26,22 @@
     <string name="class_bookings">Class Bookings</string>
     <string name="share_to_app">Choose an app or conversation from the list:</string>
 
-        //contact class Email sender
-        <string name="GymPass2">Contact Us</string>
-        <string name="compose_email">Compose Email</string>
+    //Classes class
+    <string name="classes_header">Classes</string>
+    <string name="classes_text">
+        Classes are taught by fully qualified personal trainers making them safe, fun and suitable for all levels of fitness.
+        \n\n
+        See for yourself:
+    </string>
 
+    //contact class Email sender
+    <string name="GymPass2">Contact Us</string>
+    <string name="compose_email">Compose Email</string>
 
+    //Share class - buttons
+    <string name="button">Share Status</string>
+    <string name="button2">Share Update</string>
+    <string name="button3">Share All</string>
 
     <string name="deregister_message">
         \n

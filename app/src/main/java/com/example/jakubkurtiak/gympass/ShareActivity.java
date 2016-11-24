@@ -20,13 +20,12 @@ public class ShareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_share);
 
         // ***  BEFORE REMOVING THE BELOW COMMON METHODS, REMEMBER TO setImpactFont() ON THE BUTTON TEXT IN 3 METHODS BELOW
-//        CommonMethods.setImpactFont(ShareActivity.this,R.id.top,R.string.gympass);
-//        CommonMethods.setImpactFont(ShareActivity.this,R.id.top,R.string.share_now);
-
+        CommonMethods.setImpactFont(ShareActivity.this,R.id.top,R.string.gympass);
+        CommonMethods.setImpactFont(ShareActivity.this,R.id.share_now,R.string.share_now);
+        CommonMethods.setImpactFont(ShareActivity.this,R.id.button,R.string.button);
+        CommonMethods.setImpactFont(ShareActivity.this,R.id.button2,R.string.button2);
+        CommonMethods.setImpactFont(ShareActivity.this,R.id.button3,R.string.button3);
     }
-
-
-
 
 
     public void shareStatus(View view) {

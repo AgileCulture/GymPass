@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_classes"
@@ -9,36 +13,56 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/background"
-    tools:context="com.example.jakubkurtiak.gympass.ClassesActivity">
+    tools:context="com.example.jakubkurtiak.gympass.ShareActivity">
+
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="44sp"
+        android:gravity="end"/>
+    <TextView
+        android:id="@+id/share_now"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="40sp"
+        android:textSize="20sp"
+        android:layout_below="@id/top"/>
 
     <Button
         android:text="Share Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:id="@+id/button"
-        android:onClick="shareStatus"/>
+        android:onClick="shareStatus"
+        android:layout_below="@+id/share_now"/>
 
     <Button
         android:text="Share Update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:id="@+id/button2"
-        android:onClick="shareUpdate"/>
+        android:onClick="shareUpdate"
+        android:layout_below="@+id/button"/>
 
     <Button
         android:text="Share All"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:id="@+id/button3"
+        android:layout_below="@+id/button2"
         android:onClick="shareAll" />
 </RelativeLayout>
+</ScrollView>
+
 
