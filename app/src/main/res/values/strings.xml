@@ -23,6 +23,7 @@
     <string name="button_deregister">Deregister</string>
     <string name="scan_code">Scan Code Now&#160;</string>
     <string name="qrcode_desc">Qr Code</string>
+    <string name="button_workout">Workout</string>
     <string name="class_bookings">Class Bookings</string>
     <string name="share_to_app">Choose an app or conversation from the list:</string>
 
@@ -58,5 +59,23 @@
         \n
         \nPlease click button below to confirm deregistration.
     </string>
+
+
+    // Workout class
+    <string name="WO_initial">Fancy some workout?\n\nFollow motivation steps!\n\nClick!</string>
+    <string name="WO_welcome">Good choice!\n\nLet\'s go!</string>
+    <string name="WO_1">Think of this while you\'re sweating it out and you won\'t be able to fight the laughter!</string>
+    <string name="WO_2">The true sign of a killer workout.</string>
+    <string name="WO_3">Sweat is our best accessory...after our favorite running shoes of course!</string>
+    <string name="WO_4">Hey, a one hour workout is just 4 percent of your day!</string>
+    <string name="WO_5">Hey, no one ever said getting an awesome, healthy body was easy—that\'s why the word work is in working out.</string>
+    <string name="WO_6">Pretty much our life philosophy right here!</string>
+    <string name="WO_7">If you can make it that far, what\'s stopping you from one more mile or one more set of reps?</string>
+    <string name="WO_8">And that is why you keep pushing yourself every time you hit the gym.</string>
+    <string name="WO_9">You have done that!!!</string>
+    <string name="WO_end">Finally!, that was outstanding!!!</string>
+    <string name="title_activity_workout">WorkoutActivity</string>
+
+    // Deregister
     <string name="deregister_are_you_sure">%1$s are you sure?</string>
 </resources>

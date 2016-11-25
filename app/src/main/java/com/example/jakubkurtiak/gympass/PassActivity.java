@@ -1,20 +1,16 @@
 package com.example.jakubkurtiak.gympass;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,11 +20,6 @@ import com.onbarcode.barcode.android.AndroidFont;
 import com.onbarcode.barcode.android.EAN8;
 import com.onbarcode.barcode.android.IBarcode;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 public class PassActivity extends AppCompatActivity {
 
     @Override
@@ -36,6 +27,7 @@ public class PassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass);
 
+        CommonMethods.awardBadge(PassActivity.this, R.id.badge);
         CommonMethods.setImpactFont(PassActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(PassActivity.this,R.id.your_pass,R.string.scan_code);
         gymLocation();
@@ -44,22 +36,25 @@ public class PassActivity extends AppCompatActivity {
 
         ImageView imageView=(ImageView) findViewById(R.id.qrcode);
         imageView.setImageBitmap(createBarcode(readBarcode()));
+
     }
 
     private void gymLocation () {
+        // Setting TextView with brief information about location.
         TextView view = (TextView) findViewById(R.id.gymmember_name);
         Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
-        view.setText("Gym location: "+readGymLocation()+", "+" "+"User: "+CommonMethods.returnCurrentLogin(PassActivity.this)+" "); // Temporarily, to be removed.
+        view.setText("Gym location: "+readGymLocation()+", "+" "+"User: "+CommonMethods.returnCurrentLogin(PassActivity.this)+" ");
         view.setTypeface(font, Typeface.ITALIC);
     }
 
     private void visitsSoFar() {
+        // Setting text with information about visits.
         TextView view = (TextView) findViewById(R.id.visits_so_far);
         Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
         view.setText(
                 "Current location: "+CommonMethods.currentDeviceLocation(PassActivity.this)+","
                 +"\n"
-                +"Total visits: "+readNumberOfVisits()+" "+" "+"Last one: "+lastVisit()+" "
+                +"Total visits: "+CommonMethods.readNumberOfVisits(PassActivity.this)+" "+" "+"Last one: "+lastVisit()+" "
                 +"\n"
                 +"\n"
                 +"It already passed "+CommonMethods.timeSinceLastVisit(PassActivity.this)+" since your last visit."
@@ -119,17 +114,6 @@ public class PassActivity extends AppCompatActivity {
         Uri uri = Uri.parse(uriString);
         Intent intent = new Intent(android.content.Intent.ACTION_VIEW, uri);
         startActivity(intent);
-    }
-
-    protected int readNumberOfVisits() {
-        // Read number of rows in cursors. This gives total number of visits to the gym.
-
-        int numberVisits = 0;
-        Cursor cursorNoVisits = CommonMethods.readTableToCursor(PassActivity.this,"tbGymPassCustomerVisits");
-        numberVisits = cursorNoVisits.getCount()-1;
-        cursorNoVisits.close();
-
-        return numberVisits;
     }
 
     protected String lastVisit() {

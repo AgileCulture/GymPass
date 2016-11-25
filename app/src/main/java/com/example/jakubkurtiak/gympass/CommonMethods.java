@@ -17,6 +17,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -46,6 +47,23 @@ public class CommonMethods {
         newfont.setText(theString);
         newfont.setTypeface(font, Typeface.ITALIC);
     }
+
+    // Badge awards. User can be awarded badge depends on how frequently they visit the gym.
+    public static void awardBadge(Activity activity, int viewName) {
+        ImageView badgeAward = (ImageView) activity.findViewById(viewName);
+
+        // Following check will return either regular, silver or golden badge.
+        if((CommonMethods.readNumberOfVisits(activity)) < 5) {
+            badgeAward.setImageDrawable(ContextCompat.getDrawable(activity,R.drawable.badge_regular_member));
+        } else if ((CommonMethods.readNumberOfVisits(activity)) < 10) {
+            badgeAward.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.badge_silver_member));
+        } else {
+            badgeAward.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.badge_golden_member));
+        }
+
+
+    }
+
 
     // Current date and time.
     public static String currentDate() {
@@ -100,6 +118,17 @@ public class CommonMethods {
         Cursor cursor = CommonMethods.openGymPassDatabase(activity, null).rawQuery(
                 "SELECT * FROM " + tableName, null);
         return cursor;
+    }
+
+    protected static int readNumberOfVisits(Activity activity) {
+        // Read number of rows in cursors. This gives total number of visits to the gym.
+
+        int numberVisits = 0;
+        Cursor cursorNoVisits = CommonMethods.readTableToCursor(activity,"tbGymPassCustomerVisits");
+        numberVisits = cursorNoVisits.getCount();
+        cursorNoVisits.close();
+
+        return numberVisits;
     }
 
     // Time since last visit.

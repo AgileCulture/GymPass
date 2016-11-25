@@ -38,6 +38,7 @@ public class MenuActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonContact,R.string.button_contact_us);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonShare,R.string.button_share);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonClasses,R.string.button_classes);
+        CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonWorkout,R.string.button_workout);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonDeregister,R.string.button_deregister);
     }
 
@@ -138,6 +139,11 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(clickOpen);
     }
 
+    // Click Workout
+    protected void clickWorkout(View view) {
+        Intent clickOpen = new Intent(MenuActivity.this,WorkoutActivity.class);
+        startActivity(clickOpen);
+    }
     // Click Deregister
     protected void clickDeregister(View view) {
         Intent clickOpen = new Intent(MenuActivity.this,DeregisterActivity.class);
