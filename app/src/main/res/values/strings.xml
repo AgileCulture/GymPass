@@ -73,7 +73,7 @@
     <string name="WO_7">If you can make it that far, what\'s stopping you from one more mile or one more set of reps?</string>
     <string name="WO_8">And that is why you keep pushing yourself every time you hit the gym.</string>
     <string name="WO_9">You have done that!!!</string>
-    <string name="WO_end">Finally!, that was outstanding!!!</string>
+    <string name="WO_end">Finally!, that was outstanding!!!\n\n\nGo home\n\n: - )</string>
     <string name="title_activity_workout">WorkoutActivity</string>
 
     // Deregister
