@@ -284,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void storeNewsDetailsInDataBase(String header, String content) {
 
-        // Populate database with customer data
+        // Populate database with news data
         String tableNews = "tbGymPassNews";
 
         openGymPassDatabase(null).execSQL("INSERT INTO "

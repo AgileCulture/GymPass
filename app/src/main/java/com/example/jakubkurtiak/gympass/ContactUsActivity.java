@@ -37,7 +37,7 @@ public class ContactUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
 
-
+        //Display the Gympass logo and header/text fonts
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.contact_us_header, R.string.contact_us_header);
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.news_content, R.string.gym_address);
@@ -69,11 +69,13 @@ public class ContactUsActivity extends AppCompatActivity {
 
         callButton.setOnClickListener(new View.OnClickListener() {
 
+
+            //Method is activated once the onclick button is clicked
             public void onClick(View V) {
 
                 //built-in phone call function (Action call)
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                //sets  a specific phone number
+                //sets  a specific phone number to make a call
                 callIntent.setData(Uri.parse("tel:(01)7163800"));
 
                 if (ActivityCompat.checkSelfPermission(ContactUsActivity.this,
@@ -90,8 +92,9 @@ public class ContactUsActivity extends AppCompatActivity {
     //`Loads the maps action
     public void onClickMap(View view) {
 
-        //launches the map intent with the set Uri location
+        //launches the map intent with the set Uri location from google maps
         Intent intent = new Intent(Intent.ACTION_VIEW,
+                //uri tag from google maps
                 Uri.parse("https://www.google.ie/maps/place/UCD+Sport+and+Fitness/@53.3081152,-6.2303547,17z/data=!4m5!3m4!1s0x4867093667320733:0x792c4381232c6b96!8m2!3d53.308112!4d-6.228166"));
         startActivity(intent);
 

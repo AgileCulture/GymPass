@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
-/**
- * Created by michaelbrennan on 09/11/2016.
- */
+
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -42,6 +40,7 @@ public class HomePageActivity extends AppCompatActivity {
             //Runs the DisplayText method
             //This text will be displayed on main thread after 10seconds
             public void run() {
+
                 Toast.makeText(HomePageActivity.this," Click the on Logo to Begin ", Toast.LENGTH_LONG).show();
             }
 
