@@ -4,9 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View;
@@ -18,6 +21,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 
 public class ContactUsActivity extends AppCompatActivity {
+    private static final int REQUEST_CALL = 1;
+    Intent callIntent;
+    ImageButton mCallButton;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -56,37 +62,72 @@ public class ContactUsActivity extends AppCompatActivity {
         view.setText(R.string.gym_address);
         //view.setTextColor(getResources().getColor(R.color.black));
 
+        init();
 
         mapButton = (ImageButton) findViewById(R.id.imageButtonMap);
 
 
-
-            //https://www.tutorialspoint.com/android/android_phone_calls.htm
+        //https://www.tutorialspoint.com/android/android_phone_calls.htm
         //https://www.tutorialspoint.com/android/android_phone_calls.htm
 
         //id button gets assigned to callButton variable
-        callButton = (ImageButton) findViewById(R.id.buttonCall);
+//        callButton = (ImageButton) findViewById(R.id.buttonCall);
+//
+//        callButton.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            //Method is activated once the onclick button is clicked
+//            public void onClick(View V) {
+//
+//                //built-in phone call function (Action call)
+//                Intent callIntent = new Intent(Intent.ACTION_CALL);
+//                //sets  a specific phone number to make a call
+//                callIntent.setData(Uri.parse("tel:+353123456789"));
+//
+//                if (ActivityCompat.checkSelfPermission(ContactUsActivity.this,
+//                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+//                    return;
+//                }
+//                startActivity(callIntent);
+//            }
+//        });
+//    }
+//    //mapButton.setOnClickListener(new View.OnClickListener() {
+    }
 
-        callButton.setOnClickListener(new View.OnClickListener() {
-
-
-            //Method is activated once the onclick button is clicked
-            public void onClick(View V) {
-
-                //built-in phone call function (Action call)
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                //sets  a specific phone number to make a call
-                callIntent.setData(Uri.parse("tel:(01)7163800"));
-
-                if (ActivityCompat.checkSelfPermission(ContactUsActivity.this,
-                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    return;
+    //The following code below was taken from androidmaster.info you allow calls to be made on API 23
+    //using Self Check Permission for ACTION_CALL ,PHONE_CALL
+    //http://www.androidmaster.info/marshmallow-6-0-self-check-permission-for-calling-a-number-example/
+    private void init(){
+        mCallButton= (ImageButton) findViewById(R.id.buttonCall);
+        mCallButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callIntent=new Intent(Intent.ACTION_CALL, Uri.parse("tel:(01) 716 3800 "));
+                if (ContextCompat.checkSelfPermission(ContactUsActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(ContactUsActivity.this,new String[]{Manifest.permission.CALL_PHONE},REQUEST_CALL);
+                }else {
+                    startActivity(callIntent);
                 }
-                startActivity(callIntent);
             }
         });
     }
-    //mapButton.setOnClickListener(new View.OnClickListener() {
+    //The following code was taken from androidmaster you allow call to be made on API 23
+    //Using Self Check Permission for ACTION_CALL ,PHONE_CALL
+    //http://www.androidmaster.info/marshmallow-6-0-self-check-permission-for-calling-a-number-example/
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case REQUEST_CALL:
+            {
+                if (grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                    startActivity(callIntent);
+                }else{
+                    ////
+                }
+            }
+        }
+    }
 
 
     //`Loads the maps action
@@ -120,11 +161,4 @@ public class ContactUsActivity extends AppCompatActivity {
 
     }
 
-
 }
-
-
-
-
-
-
