@@ -33,10 +33,18 @@
         \n\n
         See for yourself:
     </string>
+    <string name="classes_bottom">Enroll now!</string>
 
-    //contact class Email sender
+    //Contact class Email sender
     <string name="GymPass2">Contact Us</string>
     <string name="compose_email">Compose Email</string>
+    <string name="gym_address">
+        "\n  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n "
+        "Monday - Friday: 6am - 11pm \n"
+        "Weekends:	8am - 6.30pm \n"
+        "Bank Holidays:	8am - 6.30pm");
+    </string>
+
 
     //Share class - buttons
     <string name="button">Share Status</string>

@@ -23,25 +23,24 @@ public class ClassesActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(ClassesActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(ClassesActivity.this,R.id.classes,R.string.classes_header);
         CommonMethods.setImpactFont(ClassesActivity.this,R.id.classes_text,R.string.classes_text);
-    }
-
-
-
-
-    public void shareAll(View view) {
-        Intent shareAllIntent = new Intent(Intent.ACTION_SEND);
-        shareAllIntent.setType("text/plain");
-
-        String msgToShareAll = "In here will go a message that shows all of the sessions I've done over the time since app use started";
-        shareAllIntent.putExtra(Intent.EXTRA_TEXT, msgToShareAll);
-        startActivity(Intent.createChooser(shareAllIntent, "Choose an app or conversation from the list to share to"));
-
-        //https://www.youtube.com/embed/1drXLfIT7p8
-
-        //
+        CommonMethods.setImpactFont(ClassesActivity.this,R.id.classes_bottom_text,R.string.classes_bottom);
 
     }
 
+    protected void playClassesVideo1(View view){
+        playVideo("https://www.youtube.com/watch?v=1drXLfIT7p8");
+    }
 
+    protected void playClassesVideo2(View view){
+        playVideo("https://www.youtube.com/watch?v=44861zB1Bao");
+    }
 
+    protected void playClassesVideo3(View view){
+        playVideo("https://www.youtube.com/watch?v=vtIQcIMr7iM");
+    }
+
+    // Simple intent to play YouTube video after clicking on an image/button.
+    protected void playVideo(String video) {
+        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(video)));
+    }
 }

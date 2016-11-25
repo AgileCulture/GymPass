@@ -57,17 +57,24 @@ public class DeregisterActivity extends AppCompatActivity {
     private void setAreYouSure() {
 
         // Using login name from SharedPreferences to address user.
-        TextView view = (TextView) findViewById(R.id.are_you_sure);
-        view.setText(
-            getString(R.string.deregister_are_you_sure,CommonMethods.returnCurrentLogin(DeregisterActivity.this))
-        );
-        view.setTextColor(getResources().getColor(R.color.black));
+        //TextView view = (TextView) findViewById(R.id.are_you_sure);
+        //view.setText(
+        //    getString(R.string.deregister_are_you_sure,CommonMethods.returnCurrentLogin(DeregisterActivity.this))
+        //);
+        TextView newfont = (TextView) DeregisterActivity.this.findViewById(R.id.are_you_sure);
+        Typeface font = Typeface.createFromAsset(DeregisterActivity.this.getAssets(), "fonts/impact.ttf");
+        newfont.setText(getString(R.string.deregister_are_you_sure,CommonMethods.returnCurrentLogin(DeregisterActivity.this)));
+        newfont.setTypeface(font, Typeface.ITALIC);
+
     }
 
     private void setDeregisterContent() {
-        TextView view = (TextView) findViewById(R.id.deregister_content);
-        view.setText(R.string.deregister_message);
-        view.setTextColor(getResources().getColor(R.color.black));
+        //TextView view = (TextView) findViewById(R.id.deregister_content);
+        //view.setText(R.string.deregister_message);
+        TextView newfont = (TextView) DeregisterActivity.this.findViewById(R.id.deregister_content);
+        Typeface font = Typeface.createFromAsset(DeregisterActivity.this.getAssets(), "fonts/impact.ttf");
+        newfont.setText(getString(R.string.deregister_message));
+        newfont.setTypeface(font, Typeface.ITALIC);
     }
 }
 

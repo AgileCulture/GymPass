@@ -40,6 +40,7 @@ public class ContactUsActivity extends AppCompatActivity {
 
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.contact_us_header, R.string.contact_us_header);
+        CommonMethods.setImpactFont(ContactUsActivity.this, R.id.news_content, R.string.gym_address);
 
         setContactContent();
 
@@ -52,11 +53,8 @@ public class ContactUsActivity extends AppCompatActivity {
 
     private void setContactContent() {
         TextView view = (TextView) findViewById(R.id.news_content);
-        view.setText(" \n  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n " +
-                " Monday - Friday: 6am - 11pm \n" +
-                "  Weekends:	8am - 6.30pm \n" +
-                "  Bank Holidays:	8am - 6.30pm");
-        view.setTextColor(getResources().getColor(R.color.black));
+        view.setText(R.string.gym_address);
+        //view.setTextColor(getResources().getColor(R.color.black));
 
 
         mapButton = (ImageButton) findViewById(R.id.imageButtonMap);

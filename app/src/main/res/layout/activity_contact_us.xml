@@ -44,7 +44,6 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:id="@+id/news_content"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/white"
         android:layout_weight="1.60" />
 
 

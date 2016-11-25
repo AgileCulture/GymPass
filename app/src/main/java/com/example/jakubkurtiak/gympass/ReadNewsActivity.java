@@ -20,10 +20,11 @@ public class ReadNewsActivity extends AppCompatActivity {
 
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.read_news_header, R.string.read_news);
+        CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.news_content, R.string.read_news);
 
-        setImpactFont(R.id.top, R.string.gympass);
-        setImpactFont(R.id.read_news_header, R.string.read_news);
-        TextView view = (TextView) findViewById(R.id.news_content);
+        CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.top, R.string.gympass);
+        CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.read_news_header, R.string.read_news);
+       // TextView view = (TextView) findViewById(R.id.news_content);
         setNewsContent0();
 
 
@@ -32,15 +33,7 @@ public class ReadNewsActivity extends AppCompatActivity {
     //testing part 2
     //final String[] myName = {hello, hell, hel};
 
-    // Set Impact font for given view and string.
-    protected void setImpactFont(int viewName, int theString) {
-        TextView newfont = (TextView) findViewById(viewName);
-        Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
-        newfont.setText(theString);
-        newfont.setTypeface(font, Typeface.ITALIC);
 
-
-    }
 
     //String hello = setNewsContent0();
     //String hell = setNewsContent1();
@@ -60,8 +53,8 @@ public class ReadNewsActivity extends AppCompatActivity {
 //                + readGymLocation2());
 //        view.setTextColor(getResources().getColor(R.color.black));
 
-        view.setText("\n \n  " + newsToShow);
-        view.setTextColor(getResources().getColor(R.color.black));
+        view.setText("\n \n" + newsToShow);
+        //view.setTextColor(getResources().getColor(R.color.black));
 
         return null;
     }
