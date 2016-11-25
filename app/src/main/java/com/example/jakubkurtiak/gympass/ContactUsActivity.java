@@ -95,7 +95,7 @@ public class ContactUsActivity extends AppCompatActivity {
 //    //mapButton.setOnClickListener(new View.OnClickListener() {
     }
 
-    //The following code below was taken from androidmaster.info you allow calls to be made on API 23
+    //The following code below was taken from androidmaster.info to allow calls to be made on API 23
     //using Self Check Permission for ACTION_CALL ,PHONE_CALL
     //http://www.androidmaster.info/marshmallow-6-0-self-check-permission-for-calling-a-number-example/
     private void init(){
@@ -112,7 +112,7 @@ public class ContactUsActivity extends AppCompatActivity {
             }
         });
     }
-    //The following code was taken from androidmaster you allow call to be made on API 23
+    //The following code was taken from androidmaster to allow calls to be made on API 23
     //Using Self Check Permission for ACTION_CALL ,PHONE_CALL
     //http://www.androidmaster.info/marshmallow-6-0-self-check-permission-for-calling-a-number-example/
     @Override
