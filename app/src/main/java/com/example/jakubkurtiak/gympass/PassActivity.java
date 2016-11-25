@@ -62,11 +62,6 @@ public class PassActivity extends AppCompatActivity {
                 +"Total visits: "+readNumberOfVisits()+" "+" "+"Last one: "+lastVisit()+" "
                 +"\n"
                 +"\n"
-                +"Last one date read as Date format:\n"+CommonMethods.lastGymVisit(PassActivity.this,1)
-                +"\n"
-                +"Second last one date read as Date format:\n"+CommonMethods.lastGymVisit(PassActivity.this,2)
-                +"\n"
-                // 1 - last visit; 2 - second last visit
                 +"It already passed "+CommonMethods.timeSinceLastVisit(PassActivity.this)+" since your last visit."
         );
         view.setTypeface(font, Typeface.ITALIC);
