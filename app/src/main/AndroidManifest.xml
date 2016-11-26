@@ -50,7 +50,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ClassesActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -58,12 +58,12 @@
 
         <service android:name=".MyFirebaseInstanceIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"></action>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -73,9 +73,9 @@
 
         <activity
             android:name=".WorkoutActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_workout"
-            android:theme="@style/AppTheme"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
