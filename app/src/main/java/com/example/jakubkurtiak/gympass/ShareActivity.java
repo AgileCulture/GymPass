@@ -181,16 +181,16 @@ public class ShareActivity extends AppCompatActivity {
         // Returns a String of how long since user's first gym session, formatted in days or weeks.
         String formattedPeriodSinceFirstVisit;
 
-        if (daysSinceFirstVisit == 1) {
-            formattedPeriodSinceFirstVisit = "1 day";
-        } else if (daysSinceFirstVisit < 7) {
-            formattedPeriodSinceFirstVisit = daysSinceFirstVisit + " days";
-        } else if (daysSinceFirstVisit == 7) {
-            formattedPeriodSinceFirstVisit = "1 week";
-        } else {
-            int weeksSinceFirstVisit = daysSinceFirstVisit / 7;
-            formattedPeriodSinceFirstVisit = weeksSinceFirstVisit + " weeks";
-        }
+            if (daysSinceFirstVisit == 1) {
+                formattedPeriodSinceFirstVisit = "1 day";
+            } else if (daysSinceFirstVisit < 7) {
+                formattedPeriodSinceFirstVisit = daysSinceFirstVisit + " days";
+            } else if (daysSinceFirstVisit == 7) {
+                formattedPeriodSinceFirstVisit = "1 week";
+            } else {
+                int weeksSinceFirstVisit = daysSinceFirstVisit / 7;
+                formattedPeriodSinceFirstVisit = weeksSinceFirstVisit + " weeks";
+            }
 
         return formattedPeriodSinceFirstVisit;
     }
