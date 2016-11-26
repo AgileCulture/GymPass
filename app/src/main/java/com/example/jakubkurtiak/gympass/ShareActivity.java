@@ -1,6 +1,7 @@
 package com.example.jakubkurtiak.gympass;
 
         import android.app.Activity;
+        import android.database.Cursor;
         import android.graphics.Typeface;
         import android.net.Uri;
         import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,12 @@ package com.example.jakubkurtiak.gympass;
         import android.view.View;
         import android.widget.Button;
 
+        import java.text.ParseException;
+        import java.text.SimpleDateFormat;
+        import java.util.Date;
+        import java.util.HashMap;
+        import java.util.Hashtable;
+
 
 public class ShareActivity extends AppCompatActivity {
 
@@ -19,7 +26,7 @@ public class ShareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
 
-        // ***  BEFORE REMOVING THE BELOW COMMON METHODS, REMEMBER TO setImpactFont() ON THE BUTTON TEXT IN 3 METHODS BELOW
+
         CommonMethods.setImpactFont(ShareActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(ShareActivity.this,R.id.share_now,R.string.share_now);
         CommonMethods.setImpactFont(ShareActivity.this,R.id.button,R.string.button);
@@ -27,41 +34,95 @@ public class ShareActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(ShareActivity.this,R.id.button3,R.string.button3);
     }
 
+    private String getChooseAppString() {
+        return getString(R.string.share_to_app);
+
+    }
+
 
     public void shareStatus(View view) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
 
-        String msgToShare = "I'm one of those vain pricks who checks-in on FB whenever I go to the gym  - sent from GymPass";
+        String msgToShare = "Working out at the gym - sent from GymPass";
         shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
-        startActivity(Intent.createChooser(shareIntent,"Choose an app or conversation from the list:"));
-
-        //  Need to make the CommonMethods.setImpactFont usable from the CommonMethods class, or else make another setFont common method
-        //  that doesn't need to take in all 3 arguments of Activity, View and Message
-        //      CommonMethods.setImpactFont(ShareActivity.this, view, R.string.share_to_app)
+        startActivity(Intent.createChooser(shareIntent, getChooseAppString()));
     }
-
 
     public void shareUpdate(View view) {
-//        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//        shareIntent.setType("text/plain");
-//
-//        String msgToShare = "In here will go an update: I have been at the gym X times in the past Y days/weeks/months";
-//        shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
-//        startActivity(Intent.createChooser(shareIntent,"Choose an app or conversation from the list:"));
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
 
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=FRfmw3jw2c4")));
+        // CommonMethods.timeSinceLastVisit(ShareActivity.this);
 
-
+        String msgToShare = "In here will go an update: I have been at the gym X times in the past Y days/weeks/months";
+        shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
+        startActivity(Intent.createChooser(shareIntent, getChooseAppString()));
     }
+
 
     public void shareAll(View view) {
         Intent shareAllIntent = new Intent(Intent.ACTION_SEND);
         shareAllIntent.setType("text/plain");
+        int totalVisits = CommonMethods.readNumberOfVisits(ShareActivity.this);
+        String durationSinceFirstSession = periodSinceFirstVisit(ShareActivity.this);
+        String sessions;
+        sessions = (totalVisits == 1) ? "session" : "sessions";
 
-        String msgToShareAll = "In here will go a message that shows all of the sessions I've done over the time since app use started";
+        String msgToShareAll = "I've done a total of " + totalVisits + " " + sessions + " since I started my programme " + durationSinceFirstSession + " ago!";
         shareAllIntent.putExtra(Intent.EXTRA_TEXT, msgToShareAll);
-        startActivity(Intent.createChooser(shareAllIntent, "Choose an app or conversation from the list to share to"));
+        startActivity(Intent.createChooser(shareAllIntent, getChooseAppString()));
     }
+
+
+    // Customised DB methods, with accessibility to the methods set as: private to this Class
+
+    private static String periodSinceFirstVisit(Activity activity) {
+        // Get the time of last visit and compare to current time.
+
+        Cursor cursorNoVisits = CommonMethods.readTableToCursor(activity, "tbGymPassCustomerVisits");
+        cursorNoVisits.moveToFirst();
+
+        int indexTime = cursorNoVisits.getColumnIndex("timestamp");
+        String time = cursorNoVisits.getString(indexTime);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
+        Date dateOfFirstVisit = null;
+        try {
+            dateOfFirstVisit = dateFormat.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        cursorNoVisits.close();
+
+        // To calculate the difference between NOW and LAST VISIT, Date must be changed
+        // into long. Then time of last visit is subtracted from actual time which
+        // gives us the actual time since last visit.
+        // This time is in seconds, so must be changed to human readable format.
+        long dateTimeNowInSeconds = new Date().getTime()/1000;
+        long dateTimeFirstVisitInSeconds = dateOfFirstVisit.getTime()/1000;
+        long timeSinceLastVisitInSeconds = dateTimeNowInSeconds - dateTimeFirstVisitInSeconds;
+        int daysSinceFirstVisit = (int) (timeSinceLastVisitInSeconds / 86400);
+
+        // Returns a String of how long since user's first gym session, formatted in days or weeks.
+        String formattedPeriodSinceFirstVisit;
+
+            if (daysSinceFirstVisit == 1) {
+                formattedPeriodSinceFirstVisit = "1 day";
+            }
+            else if (daysSinceFirstVisit < 7) {
+                formattedPeriodSinceFirstVisit = daysSinceFirstVisit + " days";
+            }
+            else if (daysSinceFirstVisit == 7) {
+                formattedPeriodSinceFirstVisit = "1 week";
+            }
+            else {
+                int weeksSinceFirstVisit = daysSinceFirstVisit / 7;
+                formattedPeriodSinceFirstVisit = weeksSinceFirstVisit + " weeks";
+            }
+
+        return formattedPeriodSinceFirstVisit;
+    }
+
 
 }

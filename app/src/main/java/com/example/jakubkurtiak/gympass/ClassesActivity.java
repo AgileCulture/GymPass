@@ -39,6 +39,12 @@ public class ClassesActivity extends AppCompatActivity {
         playVideo("https://www.youtube.com/watch?v=vtIQcIMr7iM");
     }
 
+
+    /* Youtube link to UCD Induction video  - comment left by Shane
+         https://www.youtube.com/watch?v=FRfmw3jw2c4
+     */
+
+
     // Simple intent to play YouTube video after clicking on an image/button.
     protected void playVideo(String video) {
         startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(video)));
