@@ -60,6 +60,8 @@ public class ContactUsActivity extends AppCompatActivity {
     private void setContactContent() {
         TextView view = (TextView) findViewById(R.id.news_content);
         view.setText(R.string.gym_address);
+        view.setTextColor(getResources().getColor(R.color.white));
+
         //view.setTextColor(getResources().getColor(R.color.black));
 
         init();
@@ -67,8 +69,6 @@ public class ContactUsActivity extends AppCompatActivity {
         mapButton = (ImageButton) findViewById(R.id.imageButtonMap);
 
 
-        //https://www.tutorialspoint.com/android/android_phone_calls.htm
-        //https://www.tutorialspoint.com/android/android_phone_calls.htm
 
         //id button gets assigned to callButton variable
 //        callButton = (ImageButton) findViewById(R.id.buttonCall);

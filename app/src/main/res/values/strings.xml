@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">GymPass</string>
-    <string name="gympass">GymPass&#160;</string>
+    <string name="gympass"><font fgcolor='white'>GymPass&#160;</font></string>
     <string name="menu">Menu</string>
     <string name="pass">Pass</string>
-    <string name="read_news">Latest News&#160;</string>
-    <string name="contact_us_header">Contact Us&#160;</string>
+    <string name="read_news"><font fgcolor='-#888888'>Latest News&#160;</font></string>
+    <string name="contact_us_header"><font fgcolor="-#888888">Contact Us&#160;</font></string>
     <string name="share_now">Share Now&#160;</string>
     <string name="classes">Classes&#160;</string>
     <string name="deregister">Deregister&#160;</string>
@@ -43,7 +43,7 @@
         "\n  UCD Sport and Fitness \n  Belfied \n  Dublin 4 \n "
         "Monday - Friday: 6am - 11pm \n"
         "Weekends:	8am - 6.30pm \n"
-        "Bank Holidays:	8am - 6.30pm");
+        "Bank Holidays:	8am - 6.30pm"
     </string>
 
 

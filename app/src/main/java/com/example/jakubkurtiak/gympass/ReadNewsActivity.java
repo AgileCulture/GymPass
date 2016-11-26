@@ -43,6 +43,9 @@ public class ReadNewsActivity extends AppCompatActivity {
     //This method displays random text from the database
     private String setNewsContent0() {
         TextView view = (TextView) findViewById(R.id.news_content);
+        view.setTextColor(getResources().getColor(R.color.white));
+
+
 
         //Each method stored within array
         final String[] newsArray = {readGymNews0(), readGymNews1(), readGymNews2()};
