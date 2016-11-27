@@ -14,8 +14,8 @@
 
 
     <ImageButton
-        android:layout_width="120pt"
-        android:layout_height="120pt"
+        android:layout_width="240sp"
+        android:layout_height="250sp"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/gynpasstransparent"
         android:id="@+id/imageButton"
