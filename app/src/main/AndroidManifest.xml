@@ -49,13 +49,8 @@
             android:name=".DeregisterActivity"
             android:screenOrientation="portrait" />
         <activity
-<<<<<<< HEAD
-
-            android:screenOrientation="portrait" />
-=======
             android:name=".VideosActivity"
-	    android:screenOrientation="portrait"/>
->>>>>>> 90003460f997825bfc0dd675428c94a43d211f54
+            android:screenOrientation="portrait" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
