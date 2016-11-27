@@ -27,9 +27,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         //build notification
         NotificationCompat.Builder nB = new NotificationCompat.Builder(this);
-        nB.setContentTitle("MY FCM NOTIFICATION");
+        nB.setContentTitle("GYMPASS NOTIFICATION");
         nB.setContentText(remoteMessage.getNotification().getBody());
-        nB.setColor(0xffffff00);
+        nB.setColor(0xf46524); //(0xfffff00f);
         nB.setSound(nSound);
         nB.setAutoCancel(true);
         nB.setSmallIcon(R.mipmap.ic_launcher);
