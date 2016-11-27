@@ -15,6 +15,11 @@
         android:background="@color/background"
         tools:context="com.example.jakubkurtiak.gympass.VideosActivity">
 
+        <ImageView
+            android:id="@+id/badge"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_regular_member"/>
         <TextView
             android:id="@+id/top"
             android:layout_width="match_parent"

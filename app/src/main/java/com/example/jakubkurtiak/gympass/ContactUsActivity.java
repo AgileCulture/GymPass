@@ -44,6 +44,7 @@ public class ContactUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact_us);
 
         //Display the Gympass logo and header/text fonts
+        CommonMethods.awardBadge(ContactUsActivity.this, R.id.badge);
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.contact_us_header, R.string.contact_us_header);
         CommonMethods.setImpactFont(ContactUsActivity.this, R.id.news_content, R.string.gym_address);

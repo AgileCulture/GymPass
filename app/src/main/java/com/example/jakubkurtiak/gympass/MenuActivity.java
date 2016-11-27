@@ -27,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_menu);
 
+        CommonMethods.awardBadge(MenuActivity.this, R.id.badge);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.your_pass,R.string.your_pass);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.and_more,R.string.and_more);
@@ -56,6 +57,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
+        CommonMethods.awardBadge(MenuActivity.this, R.id.badge);
         if (!CommonMethods.isAppRegistered(MenuActivity.this)) {
             Intent moveToMainActivity = new Intent(MenuActivity.this, MainActivity.class);
             startActivity(moveToMainActivity);
@@ -67,6 +69,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void onPause() {
         super.onResume();
+        CommonMethods.awardBadge(MenuActivity.this, R.id.badge);
         if (!CommonMethods.isAppRegistered(MenuActivity.this)) {
             Intent moveToMainActivity = new Intent(MenuActivity.this, MainActivity.class);
             startActivity(moveToMainActivity);
@@ -78,6 +81,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void onStop() {
         super.onResume();
+        CommonMethods.awardBadge(MenuActivity.this, R.id.badge);
         if (!CommonMethods.isAppRegistered(MenuActivity.this)) {
             Intent moveToMainActivity = new Intent(MenuActivity.this, MainActivity.class);
             startActivity(moveToMainActivity);
@@ -88,6 +92,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void onDestroy() {
         super.onResume();
+        CommonMethods.awardBadge(MenuActivity.this, R.id.badge);
         if (!CommonMethods.isAppRegistered(MenuActivity.this)) {
             Intent moveToMainActivity = new Intent(MenuActivity.this, MainActivity.class);
             startActivity(moveToMainActivity);
@@ -98,6 +103,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void onRestart() {
         super.onResume();
+        CommonMethods.awardBadge(MenuActivity.this, R.id.badge);
         if (!CommonMethods.isAppRegistered(MenuActivity.this)) {
             Intent moveToMainActivity = new Intent(MenuActivity.this, MainActivity.class);
             startActivity(moveToMainActivity);

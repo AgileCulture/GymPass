@@ -17,6 +17,7 @@ public class WorkoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
+        CommonMethods.awardBadge(WorkoutActivity.this, R.id.badge);
         CommonMethods.setImpactFont(WorkoutActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(WorkoutActivity.this,R.id.workout,R.string.button_workout);
         CommonMethods.setImpactFont(WorkoutActivity.this,R.id.buttonWorkoutGO,R.string.WO_initial);

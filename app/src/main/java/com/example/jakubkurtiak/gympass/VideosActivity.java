@@ -15,6 +15,7 @@ public class VideosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_videos);
 
         // ***  BEFORE REMOVING THE BELOW COMMON METHODS, REMEMBER TO setImpactFont() ON THE BUTTON TEXT IN 3 METHODS BELOW
+        CommonMethods.awardBadge(VideosActivity.this, R.id.badge);
         CommonMethods.setImpactFont(VideosActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(VideosActivity.this,R.id.videos,R.string.button_videos);
         CommonMethods.setImpactFont(VideosActivity.this,R.id.classes_text,R.string.classes_text);

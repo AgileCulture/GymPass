@@ -19,6 +19,7 @@ public class ReadNewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read_news);
 
         //Logo and text font displayed
+        CommonMethods.awardBadge(ReadNewsActivity.this, R.id.badge);
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.read_news_header, R.string.read_news);
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.news_content, R.string.read_news);

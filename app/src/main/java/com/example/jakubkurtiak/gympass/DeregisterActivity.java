@@ -19,6 +19,7 @@ public class DeregisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deregister);
 
+        CommonMethods.awardBadge(DeregisterActivity.this, R.id.badge);
         CommonMethods.setImpactFont(DeregisterActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(DeregisterActivity.this,R.id.deregister_header,R.string.deregister);
         CommonMethods.setImpactFont(DeregisterActivity.this,R.id.buttonDeregisterNow,R.string.button_deregister);

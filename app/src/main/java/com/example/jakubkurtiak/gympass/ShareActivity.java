@@ -38,6 +38,7 @@ public class ShareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
 
+        CommonMethods.awardBadge(ShareActivity.this, R.id.badge);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.share_now, R.string.share_now);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.button, R.string.button);

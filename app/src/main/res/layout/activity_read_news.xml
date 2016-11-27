@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_read_news"
@@ -11,6 +15,11 @@
     android:background="@color/background"
     tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
 
+    <ImageView
+        android:id="@+id/badge"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/badge_regular_member"/>
     <TextView
         android:id="@+id/top"
         android:layout_width="match_parent"
@@ -50,4 +59,5 @@
     </LinearLayout>
 
 </RelativeLayout>
+</ScrollView>
 
