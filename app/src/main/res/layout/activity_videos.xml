@@ -13,7 +13,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:background="@color/background"
-        tools:context="com.example.jakubkurtiak.gympass.ClassesActivity">
+        tools:context="com.example.jakubkurtiak.gympass.VideosActivity">
 
         <TextView
             android:id="@+id/top"
@@ -22,12 +22,13 @@
             android:textSize="44sp"
             android:gravity="end"/>
         <TextView
-            android:id="@+id/classes"
+            android:id="@+id/videos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="40sp"
-            android:textSize="20sp"
+            android:textSize="35sp"
+            android:textColor="@color/black"
             android:layout_below="@id/top"/>
         <TextView
             android:id="@+id/classes_text"
@@ -36,7 +37,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="40sp"
             android:layout_marginRight="20sp"
-            android:layout_below="@id/classes"/>
+            android:layout_below="@id/videos"/>
         <ImageView
             android:id="@+id/imgpromo1"
             android:layout_width="match_parent"
