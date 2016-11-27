@@ -1,12 +1,9 @@
 package com.example.jakubkurtiak.gympass;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 // Menu Activity is main page of the app once successfully
 // registered. It forwards to further activities:
@@ -37,7 +34,7 @@ public class MenuActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonReadNews,R.string.button_read_news);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonContact,R.string.button_contact_us);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonShare,R.string.button_share);
-        CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonClasses,R.string.button_classes);
+        CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonVideos,R.string.button_videos);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonWorkout,R.string.button_workout);
         CommonMethods.setImpactFont(MenuActivity.this,R.id.buttonDeregister,R.string.button_deregister);
     }
@@ -134,8 +131,8 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     // Click Share
-    protected void clickClasses(View view) {
-        Intent clickOpen = new Intent(MenuActivity.this,ClassesActivity.class);
+    protected void clickVideos(View view) {
+        Intent clickOpen = new Intent(MenuActivity.this,VideosActivity.class);
         startActivity(clickOpen);
     }
 

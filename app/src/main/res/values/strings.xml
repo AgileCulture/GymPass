@@ -20,6 +20,7 @@
     <string name="button_contact_us">Contact Us</string>
     <string name="button_share">Share</string>
     <string name="button_classes">Classes</string>
+    <string name="button_videos">Videos</string>
     <string name="button_deregister">Deregister</string>
     <string name="scan_code"><font fgcolor="-#888888">Scan Code Now&#160;</font></string>
     <string name="qrcode_desc">Qr Code</string>

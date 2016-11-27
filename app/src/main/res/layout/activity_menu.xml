@@ -92,11 +92,11 @@
             android:onClick="clickShare"
             android:textColor="@color/colorAccentLight"/>
         <Button
-            android:id="@+id/buttonClasses"
+            android:id="@+id/buttonVideos"
             android:layout_width="match_parent"
             android:layout_height="40sp"
             android:layout_marginTop="5sp"
-            android:onClick="clickClasses"
+            android:onClick="clickVideos"
             android:textColor="@color/colorAccentLight"/>
         <Button
             android:id="@+id/buttonWorkout"
