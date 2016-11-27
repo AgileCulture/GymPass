@@ -145,7 +145,7 @@ public class ShareActivity extends AppCompatActivity {
 
     private void setContenttoListArrayWords(String listOfWords) {
         TextView view = (TextView) findViewById(R.id.array_words_content);
-        view.setText("GymPass didn't quite catch that... Click the back button to try again!\n\nThe words Android Voice-Recognition picked up are as follows:\n\n\n" + listOfWords);
+        view.setText("GymPass didn't quite catch that... Click the back button to try again!\n\nThe words Android Voice-Recognition picked up are as follows:\n\n\n" + listOfWords + "\n\n");
         view.setTextColor(getResources().getColor(R.color.black));
     }
 
