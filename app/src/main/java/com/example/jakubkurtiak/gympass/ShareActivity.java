@@ -38,7 +38,6 @@ public class ShareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
 
-
         CommonMethods.setImpactFont(ShareActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.share_now, R.string.share_now);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.button, R.string.button);
@@ -48,9 +47,10 @@ public class ShareActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-    // Constant to use for the reequest coded needed for VC
+    // Constant to use for the request coded needed for VC
     public static final int VC_REQUEST_CODE = 7777;
 
+    // Accessor method for the String.xml object, returning a String: Intent.createChooser can't accept int from R.id.string
     private String getChooseAppString() {
         return getString(R.string.share_to_app);
 
@@ -58,7 +58,7 @@ public class ShareActivity extends AppCompatActivity {
 
 
 
-    public void shareStatus() {
+    public void shareStatus(View view) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         String msgToShare = "Working out at the gym - sent from GymPass";
@@ -75,13 +75,12 @@ public class ShareActivity extends AppCompatActivity {
         shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
         startActivity(Intent.createChooser(shareIntent, getChooseAppString()));
         */
-
-        startVoiceRecognitionActivity();
+       startVoiceRecognitionActivity();
 
     }
 
 
-    public void shareAll() {
+    public void shareAll(View view) {
         Intent shareAllIntent = new Intent(Intent.ACTION_SEND);
         shareAllIntent.setType("text/plain");
         int totalVisits = CommonMethods.readNumberOfVisits(ShareActivity.this);
@@ -102,6 +101,7 @@ public class ShareActivity extends AppCompatActivity {
     public void startVoiceRecognitionActivity() {
         Intent vcIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         vcIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        // Put this into strings.xml. Interpolation: check Jakub's code DeregisterActivity.setAreYouSure
         vcIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say \"Status\" or \"All\" to share which update version you'd prefer:");
         startActivityForResult(vcIntent, VC_REQUEST_CODE);
 
@@ -125,10 +125,12 @@ public class ShareActivity extends AppCompatActivity {
             }
 
             if (matchedWords.contains("status") || matchedWords.contains("stats") || matchedWords.contains("stars")) {
-                shareStatus();
+                Button btn = (Button) findViewById(R.id.button);
+                shareStatus(btn);
             }
             else if (matchedWords.contains("all") || matchedWords.contains("oil") || matchedWords.contains("owl") || matchedWords.contains("call")) {
-                shareAll();
+                Button btn = (Button) findViewById(R.id.button2);
+                shareAll(btn);
             }
 
             else {
@@ -142,7 +144,7 @@ public class ShareActivity extends AppCompatActivity {
 
     private void setContenttoListArrayWords(String listOfWords) {
         TextView view = (TextView) findViewById(R.id.array_words_content);
-        view.setText("The words Android Voice-Recognition picked up were:\n\n" + listOfWords);
+        view.setText("GymPass didn't quite catch that... Click the back button to try again!\n\nThe words Android Voice-Recognition picked up are as follows:\n\n\n" + listOfWords);
         view.setTextColor(getResources().getColor(R.color.black));
     }
 
