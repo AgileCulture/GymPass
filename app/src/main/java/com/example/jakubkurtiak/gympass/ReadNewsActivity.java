@@ -2,9 +2,11 @@ package com.example.jakubkurtiak.gympass;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 public class ReadNewsActivity extends AppCompatActivity {
@@ -25,6 +27,30 @@ public class ReadNewsActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.news_content, R.string.read_news);
 
         setNewsContent0();
+    }
+
+
+    //Button click method to display news info within this Activity page
+    int numberOfClicks = 1;
+    protected void buttonNewsText(View view) {
+        TextView viewNews = (TextView) findViewById(R.id.news_content);
+        Typeface font = Typeface.createFromAsset(ReadNewsActivity.this.getAssets(), "fonts/impact.ttf");
+        viewNews.setTextColor(getResources().getColor(R.color.white));
+        viewNews.setText(String.valueOf(numberOfClicks));
+
+
+        if (numberOfClicks == 1) {
+            viewNews.setText(readGymNews0());
+            numberOfClicks += 1;
+        }
+        else if (numberOfClicks == 2) {
+            viewNews.setText(readGymNews1());
+            numberOfClicks += 1;
+        }
+        else {
+                viewNews.setText(readGymNews2());
+                numberOfClicks = 1;
+        }
     }
 
     //This method displays random text from the database
