@@ -1,4 +1,5 @@
 <resources>
+    // General strings
     <string name="app_name">GymPass</string>
     <string name="gympass"><font fgcolor='white'>GymPass&#160;</font></string>
     <string name="menu">Menu</string>
@@ -28,7 +29,7 @@
     <string name="class_bookings">Class Bookings</string>
     <string name="share_to_app">Choose an app or conversation from the list to share to:</string>
 
-    //Classes class
+    // VideosActivity
     <string name="classes_header">Classes</string>
     <string name="classes_text">
         Classes are taught by fully qualified personal trainers making them safe, fun and suitable for all levels of fitness.
@@ -37,7 +38,7 @@
     </string>
     <string name="classes_bottom">Enroll now!</string>
 
-    //Contact class Email sender
+    // ContactUsActivity
     <string name="GymPass2">Contact Us</string>
     <string name="compose_email">Compose Email</string>
     <string name="gym_address">
@@ -48,7 +49,7 @@
     </string>
 
 
-    //Share class - buttons
+    // ShareActivity
     <string name="button">Share Status</string>
     <string name="button2">Share Update</string>
     <string name="button3">Share All</string>
@@ -61,11 +62,11 @@
         \nPlease click button below to confirm deregistration.
     </string>
 
-    // Pass clas
+    // PassActivity
     <string name="in_the_gym">In the gym, your visit is stored.</string>
 
 
-    // Workout class
+    // WorkoutActivity
     <string name="WO_initial">Fancy some workout?\n\nFollow motivation steps!\n\nClick!</string>
     <string name="WO_welcome">Good choice!\n\nLet\'s go!</string>
     <string name="WO_1">Think of this while you\'re sweating it out and you won\'t be able to fight the laughter!</string>
@@ -80,6 +81,6 @@
     <string name="WO_end">Finally!, that was outstanding!!!\n\n\nGo home\n\n: - )</string>
     <string name="title_activity_workout">WorkoutActivity</string>
 
-    // Deregister
+    // DeregisterActivity
     <string name="deregister_are_you_sure">%1$s are you sure?</string>
 </resources>

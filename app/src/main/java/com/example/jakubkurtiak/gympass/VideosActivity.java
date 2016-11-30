@@ -9,6 +9,11 @@ import android.view.View;
 
 public class VideosActivity extends AppCompatActivity {
 
+
+// -----------------------------------------
+// Safety and classes videos.
+// -----------------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

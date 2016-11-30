@@ -11,6 +11,11 @@ package com.example.jakubkurtiak.gympass;
 
 public class DeregisterActivity extends AppCompatActivity {
 
+    // -----------------------------------------
+    // This is where GymPass adventure ends. By deregistering, client is removing all data
+    // stored in an app.
+    // -----------------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

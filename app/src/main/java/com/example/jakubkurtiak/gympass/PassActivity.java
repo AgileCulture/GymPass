@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -16,6 +15,13 @@ import com.onbarcode.barcode.android.AndroidColor;
 import com.onbarcode.barcode.android.AndroidFont;
 import com.onbarcode.barcode.android.EAN8;
 import com.onbarcode.barcode.android.IBarcode;
+
+
+// -----------------------------------------
+// PassActivity is primarily to serve barcode to allow cutomer to scan it
+// using gym scanners.
+// It also stores gym visits, so it can be further used in other activities.
+// -----------------------------------------
 
 public class PassActivity extends AppCompatActivity {
 

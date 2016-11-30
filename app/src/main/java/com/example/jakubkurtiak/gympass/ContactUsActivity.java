@@ -18,6 +18,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 
 public class ContactUsActivity extends AppCompatActivity {
+
+    // -----------------------------------------
+    // Contact Us activity is a point of contact with the gym.
+    // Customer can:
+    // - Find gym on the map
+    // - Call gym
+    // - Email gym
+    // -----------------------------------------
+
     private static final int REQUEST_CALL = 1;
     Intent callIntent;
     ImageButton mCallButton;

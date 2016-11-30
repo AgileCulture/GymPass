@@ -5,12 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+// -----------------------------------------
 // Menu Activity is main page of the app once successfully
 // registered. It forwards to further activities:
-// -    Serving qr code or barcode to access gym
-// -    Read News / Contact
-// -    Store Gym Visits / Share
-// -    Receive Broadcast / Remainders
+// -----------------------------------------
 
 public class MenuActivity extends AppCompatActivity {
 

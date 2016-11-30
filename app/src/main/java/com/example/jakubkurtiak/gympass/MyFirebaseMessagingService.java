@@ -11,6 +11,11 @@ import android.support.v7.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+
+// -----------------------------------------
+// Firebase push notifications.
+// -----------------------------------------
+
 // class that extends FirebaseMessagingService To receive notification from firebase
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

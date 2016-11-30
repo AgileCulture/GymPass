@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 public class ReadNewsActivity extends AppCompatActivity {
 
-
-
+// -----------------------------------------
+// User can read notification from the gym.
+// -----------------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,22 +24,8 @@ public class ReadNewsActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.read_news_header, R.string.read_news);
         CommonMethods.setImpactFont(ReadNewsActivity.this, R.id.news_content, R.string.read_news);
 
-
-       // TextView view = (TextView) findViewById(R.id.news_content);
         setNewsContent0();
-
-
-
     }
-    //testing part 2
-    //final String[] myName = {test, test1, test2};
-
-
-
-    //String test = setNewsContent0();
-    //String test1 = setNewsContent1();
-    //String test2 = setNewsContent2();
-    //final String[] myName = {test, test1, test2};
 
     //This method displays random text from the database
     private String setNewsContent0() {
@@ -53,11 +40,6 @@ public class ReadNewsActivity extends AppCompatActivity {
         int randomNews = (int) ((Math.random() * 3));
         //Array which was created and random bought assigned to string newsTo Show, to be called on view
         String newsToShow = newsArray[randomNews];
-
-//        view.setText("\n \n  " + readGymLocation0() +"\n \n \n                     "
-//                +readGymLocation1()+"\n \n \n                 "
-//                + readGymLocation2());
-//        view.setTextColor(getResources().getColor(R.color.black));
 
         //View call
         view.setText("\n \n" + newsToShow);

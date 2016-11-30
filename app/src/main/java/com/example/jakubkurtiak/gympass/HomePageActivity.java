@@ -12,21 +12,16 @@ import android.widget.Toast;
 
 public class HomePageActivity extends AppCompatActivity {
 
+    // -----------------------------------------
+    // This is handling the initial round logo button screen.
+    // -----------------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_page);
-
-        // final Handler handler = new Handler();
-        // handler.postDelayed(new Runnable() {
-        //     @Override
-        //     public void run() {
-        //Do something after 100ms
-        //    }
-        // }, 100);
-
 
         //Set Delay Time
         int DelayText = 1000;
@@ -47,10 +42,6 @@ public class HomePageActivity extends AppCompatActivity {
         },DelayText);
 
     }
-
-
-
-
 
     //Activates the MainActivity
     public void nextPageClick(View v)

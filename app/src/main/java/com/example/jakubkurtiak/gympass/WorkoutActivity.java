@@ -8,6 +8,11 @@ import android.widget.TextView;
 
 public class WorkoutActivity extends AppCompatActivity {
 
+
+// -----------------------------------------
+// Workout, where user is encouraged to workout.
+// -----------------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

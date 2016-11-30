@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+// -----------------------------------------
+// User can share stauts (currently at the gym) to social network.
+// -----------------------------------------
 
 public class ShareActivity extends AppCompatActivity {
 

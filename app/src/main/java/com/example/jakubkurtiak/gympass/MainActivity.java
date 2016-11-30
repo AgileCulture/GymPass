@@ -24,12 +24,13 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+// -----------------------------------------
 // Main Activity is the initial screen where gym customer activates the app. The process is as follows:
 // -    Connects to gym server (we use mock server) and downloads customer details,gym location and qr code
 // -    Stores them locally in SqlLite
-// -    Opens a session that will be passed to next activities
 //
 // Activation is mandatory, once activated this page will no longer appear, instead MenuActivity appears.
+// -----------------------------------------
 
 public class MainActivity extends AppCompatActivity {
 
