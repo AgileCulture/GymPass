@@ -63,7 +63,7 @@ public class CommonMethods {
     // Current date and time.
     public static String currentDate() {
 
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        String currentDateTimeString = new SimpleDateFormat("dd MMM yyyy HH:mm:ss").format(new Date());
         return currentDateTimeString;
     }
 

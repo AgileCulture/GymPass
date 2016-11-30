@@ -129,7 +129,11 @@ public class ContactUsActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi ");
         //set the action send to data type emails
         emailIntent.setType("message/rfc822");
-        startActivity(emailIntent);
+        try {
+            startActivity(emailIntent);
+        } catch (Exception e) {
+            System.out.print("There is no email client installed.");
+        }
 
 
     }
