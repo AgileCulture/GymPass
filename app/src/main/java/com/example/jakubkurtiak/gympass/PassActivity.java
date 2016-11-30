@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -27,7 +28,11 @@ public class PassActivity extends AppCompatActivity {
         CommonMethods.setImpactFont(PassActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(PassActivity.this,R.id.your_pass,R.string.scan_code);
         storeGymVisit();
-        visitsSoFar();
+        try{
+            visitsSoFar();
+        } catch(Exception e) {
+            System.out.print("Cannot show visits so far.");
+        }
 
         ImageView imageView=(ImageView) findViewById(R.id.qrcode);
         imageView.setImageBitmap(createBarcode(readBarcode()));
