@@ -18,9 +18,12 @@ import com.onbarcode.barcode.android.IBarcode;
 
 
 // -----------------------------------------
-// PassActivity is primarily to serve barcode to allow cutomer to scan it
+// PassActivity is primarily to serve barcode to allow customer to scan it
 // using gym scanners.
 // It also stores gym visits, so it can be further used in other activities.
+//
+// To simulate it to work it is best to set UCD's gym laction in Android Emulator
+// like this: "latitude": "53.30", "longitude": "-6.22"
 // -----------------------------------------
 
 public class PassActivity extends AppCompatActivity {
@@ -63,11 +66,7 @@ public class PassActivity extends AppCompatActivity {
 
     protected void storeGymVisit() {
         // If member opened PassActivity and their current location is the same as gym's location then
-        // gym visit is genuine and can be stored in database. Additionally to prevent false visits
-        // to be stored there must be a time constraint, so visit will be stored with a timestamp and
-        // another visits cannot be stored if at least one hour did not pass from last visit.
-
-        // Add one more factor - if pas is opened within one hour after last visit then do not store.
+        // gym visit is genuine and can be stored in database.
 
         if (CommonMethods.currentDeviceLocation(PassActivity.this).equals(readGymLocation())) {
             storeGymVisitInDB(CommonMethods.returnCurrentLogin(PassActivity.this),CommonMethods.currentDate());

@@ -146,8 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 //gymLatitude = String.valueOf(gymLocation.getJSONObject(0).get("latitude"));
                 //gymLongitude = String.valueOf(gymLocation.getJSONObject(0).get("longitude"));
 
-                String h;
-                String c;
                 int j;
 
                 for (j = 0; j < gymNewsArray.length(); j++) {
