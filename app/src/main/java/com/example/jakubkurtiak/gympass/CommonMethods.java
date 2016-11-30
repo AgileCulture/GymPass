@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -16,26 +15,23 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
-import static java.lang.Integer.valueOf;
 
 public class CommonMethods {
 
 
     // -----------------------------------------
     // Common
+    // Class where common methods reside. These methods are used in other activities.
+    // -----------------------------------------
 
     // Set Impact font for given view and string. To use this method pass following parameters:
     // - Current activity name
@@ -51,31 +47,14 @@ public class CommonMethods {
 
     // Badge awards. User can be awarded badge depends on how frequently they visit the gym.
     public static void awardBadge(Activity activity, int viewName) {
-
         ImageView badgeAward = (ImageView) activity.findViewById(viewName);
 
-        // **********************************************************************
-        // JAKUB'S WORKING CODE. RETURN TO THIS CODE FOR SUBMISSION IF SHANE'S MONTHLY VISIT CODE DOESN'T WORK
         // Following check will return either regular, silver or golden badge.
-//        if((CommonMethods.readNumberOfVisits(activity)) < 5) {
-//            badgeAward.setImageDrawable(ContextCompat.getDrawable(activity,R.drawable.badge_regular_member));
-//        } else if ((CommonMethods.readNumberOfVisits(activity)) < 10) {
-//            badgeAward.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.badge_silver_member));
-//        } else {
-//            badgeAward.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.badge_golden_member));
-//        }
-        // **********************************************************************
-
-        // Shane's edit on badges - tie badges to how many times the user has visited the gym this month so far
-        // Note: This resets the count every month, which I think is good as it sets a challenge at the start of each month
-        int visitsSinceStartOfMonth = visitsThisMonth(activity);
-        if (visitsSinceStartOfMonth < 5) {
+        if((CommonMethods.readNumberOfVisits(activity)) < 5) {
             badgeAward.setImageDrawable(ContextCompat.getDrawable(activity,R.drawable.badge_regular_member));
-        }
-        else if (visitsSinceStartOfMonth < 10) {
+        } else if ((CommonMethods.readNumberOfVisits(activity)) < 10) {
             badgeAward.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.badge_silver_member));
-        }
-        else {
+        } else {
             badgeAward.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.badge_golden_member));
         }
     }
@@ -147,71 +126,6 @@ public class CommonMethods {
         return numberVisits;
     }
 
-    // **********************************************************************
-    // SHANE'S CONVOLUTED METHOD TO RETURN NUMBER OF VISITS THIS MONTH SO FAR.
-    // TAKE THIS OUT IF NOT WORKING RIGHT BY SUBMISSION DATE, AND CHANGE awardBadge() BACK TO JAKUB'S ORIGINAL
-    private static int visitsThisMonth(Activity activity) {
-
-        // Set up Cursor starting at first row in Visits Table
-        Cursor visitsTable = CommonMethods.readTableToCursor(activity, "tbGymPassCustomerVisits");
-        int visitsCount = 0;
-
-        try {
-            visitsTable.moveToFirst();
-            int dateColumn = visitsTable.getColumnIndex("timestamp");
-            String dateInString = visitsTable.getString(dateColumn);
-            String substringDate = dateInString.substring(0, 2);
-            Integer integerDate = Integer.valueOf(substringDate);
-            // Now I have the date of the first column as a wrapped Integer. I'm at the date of the first entry (most recent login date)
-
-            // Logic:   Loop over each subsequent row, from most recent to earlier.
-            //          This month is finished when the given integerDate is larger than the next entry
-            //          On each iteration, add visitsCount++
-
-            // Set dateInCursor to that of the first row after moveToFirst() method.
-            // Set initial dateToCheckAgainst at 32 so it's always bigger than dateInCursor to get the while loop doing minimum 1 iteration
-            int dateInCursor = integerDate;
-            Integer dateToCheckAgainst = 32;
-
-            while (dateInCursor < dateToCheckAgainst && !(visitsTable.isNull(1))) { // while date in current row is smaller than date I've last checked, iterate again as we're still in the same month
-
-                // Moves the cursor to the second row (and subsequent rows on each iteration)
-                visitsTable.moveToNext();
-
-                // Returns the date of the Visit as an Integer value so that it can check == previous row's date (which should be smaller if we are in the same month)
-                int checkDateColumn = visitsTable.getColumnIndex("timestamp");
-                String checkDateInString = visitsTable.getString(checkDateColumn);
-                String checkSubstringDate = checkDateInString.substring(0, 2);
-                dateInCursor = Integer.valueOf(checkSubstringDate);
-                // Now dateInCursor is set to the date of the gym visit that the cursor is sitting on.
-
-                if (dateInCursor < dateToCheckAgainst) {
-                    visitsCount++; // add to the Visits Count if the Cursor date is larger than the previous date
-                    dateToCheckAgainst = dateInCursor; // updates DateToCheckAgainst to the previous date
-                }
-
-                // end of While loop
-            }
-
-        }
-        catch (android.database.CursorIndexOutOfBoundsException nullTable) {
-            System.out.println("Caught a Cursor OutofBounds exception due to DB having <2 visits in total");
-        }
-        finally {
-            visitsTable.close();
-            if (visitsCount < 1) {
-                return 1;
-            }
-            else {
-                return visitsCount;
-            }
-        }
-
-    // End of visitsThisMonth methods
-    }
-
-
-
     // Time since last visit.
     public static String timeSinceLastVisit(Activity activity) {
         // Get the time of last visit and compare to current time.
@@ -248,43 +162,11 @@ public class CommonMethods {
         // Return string with time passed since last visit.
 
         String timeSinceLastVisit = (daysSinceLastVisit+" days "
-                                    +hoursSinceLastVisit+" hours "
-                                    +minutesSinceLastVisit+" minutes "
-                                    +secondsSinceLastVisit+" seconds ");
+                +hoursSinceLastVisit+" hours "
+                +minutesSinceLastVisit+" minutes "
+                +secondsSinceLastVisit+" seconds ");
 
         return timeSinceLastVisit;
-    }
-
-    // Read timestamp of last visit or few visits in date format.
-    // Pass parameter following parameters to get:
-    // 1 - last visit
-    // 2 - second last visit
-    protected static Date lastGymVisit(Activity activity, int parameter) {
-
-        Cursor cursorNoVisits = CommonMethods.readTableToCursor(activity, "tbGymPassCustomerVisits");
-        if (parameter == 1) {
-            cursorNoVisits.moveToLast();
-        }
-
-        if (parameter == 2 && cursorNoVisits.getCount() > 1) {
-        cursorNoVisits.moveToLast();
-        cursorNoVisits.moveToPrevious();
-        } else {
-            cursorNoVisits.moveToLast();
-        }
-
-        int indexTime = cursorNoVisits.getColumnIndex("timestamp");
-        String time = cursorNoVisits.getString(indexTime);
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
-        Date dateOfLastVisit = null;
-        try {
-            dateOfLastVisit = dateFormat.parse(time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        cursorNoVisits.close();
-        return dateOfLastVisit;
     }
 
     // Open database to read.
@@ -311,12 +193,12 @@ public class CommonMethods {
 
         if (Build.VERSION.SDK_INT >= 23) {
             try {
-            // Since API 23, permissions cannot be granted only in manifest file, they should also be
-            // explicitly asked when necessary. It applies to dangerous permissions only and such is location
-            // First check if API is >=23, then check if permissions are granted and then initialize LocationManager,
-            // else simply ask permissions explicitly.
-            // Location precision is narrowed down to 2 decimal places to avoid situations where customer
-            // is at the gym, but due to little differences, location does not match and visit will not count.
+                // Since API 23, permissions cannot be granted only in manifest file, they should also be
+                // explicitly asked when necessary. It applies to dangerous permissions only and such is location
+                // First check if API is >=23, then check if permissions are granted and then initialize LocationManager,
+                // else simply ask permissions explicitly.
+                // Location precision is narrowed down to 2 decimal places to avoid situations where customer
+                // is at the gym, but due to little differences, location does not match and visit will not count.
 
                 if (ActivityCompat.checkSelfPermission(activity, android.Manifest.permission.ACCESS_FINE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED

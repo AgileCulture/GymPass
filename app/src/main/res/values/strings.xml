@@ -61,6 +61,9 @@
         \nPlease click button below to confirm deregistration.
     </string>
 
+    // Pass clas
+    <string name="in_the_gym">In the gym, your visit is stored.</string>
+
 
     // Workout class
     <string name="WO_initial">Fancy some workout?\n\nFollow motivation steps!\n\nClick!</string>

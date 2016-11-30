@@ -9,14 +9,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 
@@ -69,31 +66,6 @@ public class ContactUsActivity extends AppCompatActivity {
 
         mapButton = (ImageButton) findViewById(R.id.imageButtonMap);
 
-
-
-        //id button gets assigned to callButton variable
-//        callButton = (ImageButton) findViewById(R.id.buttonCall);
-//
-//        callButton.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            //Method is activated once the onclick button is clicked
-//            public void onClick(View V) {
-//
-//                //built-in phone call function (Action call)
-//                Intent callIntent = new Intent(Intent.ACTION_CALL);
-//                //sets  a specific phone number to make a call
-//                callIntent.setData(Uri.parse("tel:+353123456789"));
-//
-//                if (ActivityCompat.checkSelfPermission(ContactUsActivity.this,
-//                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//                    return;
-//                }
-//                startActivity(callIntent);
-//            }
-//        });
-//    }
-//    //mapButton.setOnClickListener(new View.OnClickListener() {
     }
 
     //The following code below was taken from androidmaster.info to allow calls to be made on API 23

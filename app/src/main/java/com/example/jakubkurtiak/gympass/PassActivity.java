@@ -1,14 +1,10 @@
 package com.example.jakubkurtiak.gympass;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -30,7 +26,6 @@ public class PassActivity extends AppCompatActivity {
         CommonMethods.awardBadge(PassActivity.this, R.id.badge);
         CommonMethods.setImpactFont(PassActivity.this,R.id.top,R.string.gympass);
         CommonMethods.setImpactFont(PassActivity.this,R.id.your_pass,R.string.scan_code);
-        gymLocation();
         storeGymVisit();
         visitsSoFar();
 
@@ -39,22 +34,15 @@ public class PassActivity extends AppCompatActivity {
 
     }
 
-    private void gymLocation () {
-        // Setting TextView with brief information about location.
-        TextView view = (TextView) findViewById(R.id.gymmember_name);
-        Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
-        view.setText("Gym location: "+readGymLocation()+", "+" "+"User: "+CommonMethods.returnCurrentLogin(PassActivity.this)+" ");
-        view.setTypeface(font, Typeface.ITALIC);
-    }
-
     private void visitsSoFar() {
         // Setting text with information about visits.
         TextView view = (TextView) findViewById(R.id.visits_so_far);
         Typeface font=Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
         view.setText(
-                "Current location: "+CommonMethods.currentDeviceLocation(PassActivity.this)+","
+                "Total visits: "+CommonMethods.readNumberOfVisits(PassActivity.this)+" "
                 +"\n"
-                +"Total visits: "+CommonMethods.readNumberOfVisits(PassActivity.this)+" "+" "+"Last one: "+lastVisit()+" "
+                +"\n"
+                +"Last one: "+lastVisit()+" "
                 +"\n"
                 +"\n"
                 +"It already passed "+CommonMethods.timeSinceLastVisit(PassActivity.this)+" since your last visit."
@@ -73,12 +61,7 @@ public class PassActivity extends AppCompatActivity {
         if (CommonMethods.currentDeviceLocation(PassActivity.this).equals(readGymLocation())) {
             storeGymVisitInDB(CommonMethods.returnCurrentLogin(PassActivity.this),CommonMethods.currentDate());
 
-            Toast.makeText(PassActivity.this,"In the gym, your visit is stored.",Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(PassActivity.this,
-                    "Not in the gym, your location is: "
-                    +CommonMethods.currentDeviceLocation(PassActivity.this)+","
-                    +"\n but should be: "+readGymLocation(),Toast.LENGTH_LONG);//.show(); // Toast to be removed.
+            Toast.makeText(PassActivity.this,R.string.in_the_gym,Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -103,18 +86,6 @@ public class PassActivity extends AppCompatActivity {
         return gymLoc;
     }
 
-    protected void openGeoLocationUri() {
-        double latitude = 40.714728;
-        double longitude = -73.998672;
-        String label = "ABC Label";
-        String uriBegin = "geo:" + latitude + "," + longitude;
-        String query = latitude + "," + longitude + "(" + label + ")";
-        String encodedQuery = Uri.encode(query);
-        String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
-        Uri uri = Uri.parse(uriString);
-        Intent intent = new Intent(android.content.Intent.ACTION_VIEW, uri);
-        startActivity(intent);
-    }
 
     protected String lastVisit() {
         // Read number of rows in cursors. This gives
