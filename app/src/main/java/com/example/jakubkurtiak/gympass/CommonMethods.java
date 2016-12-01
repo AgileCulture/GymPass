@@ -9,8 +9,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -25,7 +27,6 @@ import java.util.Date;
 import static android.content.Context.MODE_PRIVATE;
 
 public class CommonMethods {
-
 
     // -----------------------------------------
     // Common
@@ -205,6 +206,13 @@ public class CommonMethods {
                         == PackageManager.PERMISSION_GRANTED) {
 
                     LocationManager locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+                    // Although it would suffice to use only "getLastKnownLocation" method, because we need location
+                    // only once when activity is opened and we don't need to receive updates. However, there was
+                    // a problem when location in phone the changed and app already requested it once. There was no refresh.
+                    // So to fix this problem, LocationListener is implemented and on every call to this class, we
+                    // just refresh location. This then is fetched by "getLastKnownLocation".
+                    LocationListener locationListener = new MyLocationListener();
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
 
                     // Use both providers and then use GPS first and if null, skip to NET.
                     Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -234,6 +242,9 @@ public class CommonMethods {
             try {
                 LocationManager locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
 
+                LocationListener locationListener = new MyLocationListener();
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
+
                 Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 Location locationNet = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
@@ -254,6 +265,23 @@ public class CommonMethods {
             return loc;
         }
     }
+
+    // Implementing LocationListener that will be used in currentDeviceLocation class.
+    private static class MyLocationListener implements LocationListener {
+
+        @Override
+        public void onLocationChanged(Location loc) {}
+
+        @Override
+        public void onProviderDisabled(String provider) {}
+
+        @Override
+        public void onProviderEnabled(String provider) {}
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {}
+    }
+
 }
 
 
