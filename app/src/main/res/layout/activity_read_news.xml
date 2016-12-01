@@ -20,43 +20,37 @@
         android:layout_width="120dp"
         android:layout_height="match_parent"
         android:src="@drawable/badge_regular_member"/>
+
+
     <TextView
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="44sp"
         android:gravity="end"/>
     <TextView
-        android:id="@+id/middle"
+        android:id="@+id/read_news_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="44sp"
-        android:layout_below="@id/top"/>
-    <LinearLayout
-        android:id="@+id/upperButtons"
-        android:layout_width="match_parent"
-        android:layout_height="300sp"
-        android:gravity="start"
-        android:orientation="vertical"
-        android:layout_below="@+id/top"
-        android:layout_marginTop="@dimen/gapUnderGymPassLogo"
         android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp">
+        android:layout_marginTop="40sp"
+        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/top"/>
 
-        <TextView
-            android:id="@+id/read_news_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="35sp"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="18dp"
+        android:id="@+id/news_content"
+        android:onClick="buttonNewsText"
+        android:layout_below="@+id/read_news_header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/background"
+        android:layout_marginLeft="18dp"
+        />
 
-
-
-        <TextView
-            android:id="@+id/news_content"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
 
 </RelativeLayout>
 </ScrollView>
