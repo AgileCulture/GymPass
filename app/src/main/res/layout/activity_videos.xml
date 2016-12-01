@@ -51,36 +51,70 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/promo_vid1"
+            android:src="@drawable/gym_vid_1"
             android:onClick="playClassesVideo1"/>
+        <TextView
+            android:id="@+id/classes_text1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginRight="20sp"
+            android:layout_below="@id/imgpromo1"/>
         <ImageView
             android:id="@+id/imgpromo2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/imgpromo1"
+            android:layout_below="@id/classes_text1"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/promo_vid2"
+            android:src="@drawable/gym_vid_2"
             android:onClick="playClassesVideo2"/>
+        <TextView
+            android:id="@+id/classes_text2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginRight="20sp"
+            android:layout_below="@id/imgpromo2"/>
         <ImageView
             android:id="@+id/imgpromo3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/imgpromo2"
+            android:layout_below="@id/classes_text2"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/promo_vid3"
+            android:src="@drawable/gym_vid_3"
             android:onClick="playClassesVideo3"/>
         <TextView
-            android:id="@+id/classes_bottom_text"
+            android:id="@+id/classes_text3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20sp"
-            android:layout_marginTop="5sp"
+            android:layout_marginTop="40sp"
             android:layout_marginRight="20sp"
             android:layout_below="@id/imgpromo3"/>
+        <ImageView
+            android:id="@+id/imgpromo4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/classes_text3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/gym_vid_4"
+            android:onClick="playClassesVideo4"/>
+        <TextView
+            android:id="@+id/classes_text4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginRight="20sp"
+            android:layout_below="@id/imgpromo4"/>
     </RelativeLayout>
 </ScrollView>
 

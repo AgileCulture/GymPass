@@ -37,6 +37,10 @@
         See for yourself:
     </string>
     <string name="classes_bottom">Enroll now!</string>
+    <string name="video_text_ucd_induction_video">UCD Induction Video</string>
+    <string name="video_text_pre_workout">Pre-workout Stretching video</string>
+    <string name="video_text_bench_press">Bench Press Technique safety video</string>
+    <string name="video_text_ucd_marketing">UCD Marketing video for fitness classes overview</string>
 
     // ContactUsActivity
     <string name="GymPass2">Contact Us</string>
