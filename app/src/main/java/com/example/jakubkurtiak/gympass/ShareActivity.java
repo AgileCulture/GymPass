@@ -23,7 +23,7 @@ import java.util.Date;
 
 
 // -----------------------------------------
-// User can share stauts (currently at the gym) to social network.
+// User can share status (currently at the gym) to social network.
 // -----------------------------------------
 
 public class ShareActivity extends AppCompatActivity {
@@ -42,9 +42,11 @@ public class ShareActivity extends AppCompatActivity {
         CommonMethods.awardBadge(ShareActivity.this, R.id.badge);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.top, R.string.gympass);
         CommonMethods.setImpactFont(ShareActivity.this, R.id.share_now, R.string.share_now);
-        CommonMethods.setImpactFont(ShareActivity.this, R.id.button, R.string.button);
-        CommonMethods.setImpactFont(ShareActivity.this, R.id.button2, R.string.button2);
-        CommonMethods.setImpactFont(ShareActivity.this, R.id.button3, R.string.button3);
+        CommonMethods.setImpactFont(ShareActivity.this, R.id.share_now_top_text, R.string.share_top_textbox);
+        CommonMethods.setImpactFont(ShareActivity.this, R.id.button, R.string.button_share_checkin);
+        CommonMethods.setImpactFont(ShareActivity.this, R.id.button2, R.string.button_activate_voice_control);
+        CommonMethods.setImpactFont(ShareActivity.this, R.id.share_now_bottom_text, R.string.share_bottom_textbox);
+        CommonMethods.setImpactFont(ShareActivity.this, R.id.button3, R.string.button_share_programme);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -58,8 +60,6 @@ public class ShareActivity extends AppCompatActivity {
 
     }
 
-
-
     public void shareStatus(View view) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
@@ -69,18 +69,8 @@ public class ShareActivity extends AppCompatActivity {
     }
 
     public void shareUpdate(View view) {
-        /*
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        // CommonMethods.timeSinceLastVisit(ShareActivity.this);
-        String msgToShare = "In here will go an update: I have been at the gym X times in the past Y days/weeks/months";
-        shareIntent.putExtra(Intent.EXTRA_TEXT, msgToShare);
-        startActivity(Intent.createChooser(shareIntent, getChooseAppString()));
-        */
        startVoiceRecognitionActivity();
-
     }
-
 
     public void shareAll(View view) {
         Intent shareAllIntent = new Intent(Intent.ACTION_SEND);
@@ -95,10 +85,6 @@ public class ShareActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareAllIntent, getChooseAppString()));
     }
 
-
-
-
-
     // Inspired by a good SO answer at: stackoverflow.com/questions/11798337/how-to-voice-commands-into-an-android-application
     public void startVoiceRecognitionActivity() {
         Intent vcIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -106,15 +92,12 @@ public class ShareActivity extends AppCompatActivity {
         // Put this into strings.xml. Interpolation: check Jakub's code DeregisterActivity.setAreYouSure
         vcIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say \"Status\" or \"All\" to share which update version you'd prefer:");
         startActivityForResult(vcIntent, VC_REQUEST_CODE);
-
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == VC_REQUEST_CODE && resultCode == RESULT_OK) {
             ArrayList<String> matchedWords = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
-
 
             String listOfWords = matchedWords.get(0);
             int count = 0;
@@ -149,9 +132,6 @@ public class ShareActivity extends AppCompatActivity {
         view.setText("GymPass didn't quite catch that... Click the back button to try again!\n\nThe words Android Voice-Recognition picked up are as follows:\n\n\n" + listOfWords + "\n\n");
         view.setTextColor(getResources().getColor(R.color.black));
     }
-
-
-
 
     // Customised DB methods, with accessibility to the methods set as: private to this Class
 

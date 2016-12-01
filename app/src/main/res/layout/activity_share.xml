@@ -34,41 +34,51 @@
         android:textSize="35sp"
         android:textColor="@color/black"
         android:layout_below="@id/top"/>
-
-    <Button
-        android:text="Share Status"
+    <TextView
+        android:id="@+id/share_now_top_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40sp"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
+        android:layout_below="@id/share_now"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:id="@+id/button"
         android:textColor="@color/colorAccentLight"
         android:onClick="shareStatus"
-        android:layout_below="@+id/share_now"/>
-
+        android:layout_below="@+id/share_now_top_text"/>
     <Button
-        android:text="Share Update"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="10sp"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:id="@+id/button2"
         android:textColor="@color/colorAccentLight"
         android:onClick="shareUpdate"
         android:layout_below="@+id/button"/>
-
-    <Button
-        android:text="Share All"
+    <TextView
+        android:id="@+id/share_now_bottom_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40sp"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
+        android:layout_below="@id/button2"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:id="@+id/button3"
         android:textColor="@color/colorAccentLight"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/share_now_bottom_text"
         android:onClick="shareAll" />
 </RelativeLayout>
 </ScrollView>

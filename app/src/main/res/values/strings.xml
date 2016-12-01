@@ -53,6 +53,11 @@
     <string name="button">Share Status</string>
     <string name="button2">Share Update</string>
     <string name="button3">Share All</string>
+    <string name="button_share_checkin">Share Gym Check-in</string>
+    <string name="button_activate_voice_control">Activate Voice Control</string>
+    <string name="button_share_programme">Share Programme Progress</string>
+    <string name="share_top_textbox">Share your check-in status at the gym</string>
+    <string name="share_bottom_textbox">Share your progress so far: number of gym sessions you\'ve done since starting your programme</string>
 
     <string name="deregister_message">
         \n
