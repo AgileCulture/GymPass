@@ -44,7 +44,9 @@ tools:context="com.example.jakubkurtiak.gympass.ReadNewsActivity">
         android:id="@+id/contact_us_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="35sp"/>
+        android:textSize="35sp"
+            android:textColor="@color/black"
+            />
 
 
 

@@ -30,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="44sp"
-        android:layout_below="@id/top"/>
+        android:layout_below="@id/top" />
+
     <LinearLayout
         android:id="@+id/upperButtons"
         android:layout_width="match_parent"
@@ -46,7 +47,8 @@
             android:id="@+id/your_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonShowPass"
@@ -72,7 +74,8 @@
             android:id="@+id/and_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonReadNews"

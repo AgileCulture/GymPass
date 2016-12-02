@@ -4,8 +4,8 @@
     <string name="gympass"><font fgcolor='white'>GymPass&#160;</font></string>
     <string name="menu">Menu</string>
     <string name="pass">Pass</string>
-    <string name="read_news"><font fgcolor='-#888888'>Latest News&#160;</font></string>
-    <string name="contact_us_header"><font fgcolor="-#888888">Contact Us&#160;</font></string>
+    <string name="read_news">Latest News&#160;</string>
+    <string name="contact_us_header">Contact Us&#160;</string>
     <string name="share_now">Share Now&#160;</string>
     <string name="classes">Classes&#160;</string>
     <string name="deregister">Deregister&#160;</string>
@@ -13,8 +13,8 @@
     <string name="register">Register</string>
     <string name="member_login">Member login</string>
     <string name="member_password">Member password</string>
-    <string name="your_pass"><font fgcolor='-#888888'>Your Gym Pass&#160;</font></string>
-    <string name="and_more"><font fgcolor='-#888888'>And more&#160;</font></string>
+    <string name="your_pass">Your Gym Pass&#160;</string>
+    <string name="and_more">And more&#160;</string>
 
     <string name="your_pass_button">Click to open Gym Pass</string>
     <string name="button_read_news">Read News</string>
@@ -23,7 +23,7 @@
     <string name="button_classes">Classes</string>
     <string name="button_videos">Videos</string>
     <string name="button_deregister">Deregister</string>
-    <string name="scan_code"><font fgcolor="-#888888">Scan Code Now&#160;</font></string>
+    <string name="scan_code">Scan Code Now&#160;</string>
     <string name="qrcode_desc">Qr Code</string>
     <string name="button_workout">Workout</string>
     <string name="class_bookings">Class Bookings</string>
